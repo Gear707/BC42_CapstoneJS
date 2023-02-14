@@ -1,9 +1,12 @@
 // MIXIN FOR HOME
+@mixin homeStyle{
+    width: 250px;
+    height: 250px;
+    border-radius: 75px;
+}
+
 @mixin homePseudoElement() {
     display: block;
     content: "";
     position: absolute;
-    width: 250px;
-    height: 250px;
-    border-radius: 75px;
 }

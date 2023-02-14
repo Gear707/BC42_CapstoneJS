@@ -1,5 +1,6 @@
 /* GLOBAL */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -46,6 +47,7 @@ h1 {
   padding-bottom: 0.25rem;
   position: relative;
 }
+
 .heading__effect::before {
   content: "";
   position: absolute;
@@ -60,7 +62,9 @@ h1 {
 .picture:hover .home__effect {
   box-shadow: 0 5px 35px 0px rgba(0, 0, 0, 0.1);
 }
-.picture:hover .home__effect::before, .picture:hover .home__effect::after {
+
+.picture:hover .home__effect::before,
+.picture:hover .home__effect::after {
   display: block;
   content: "";
   position: absolute;
@@ -71,13 +75,16 @@ h1 {
   z-index: -1;
   animation: 1s clockwise infinite;
 }
+
 .picture:hover .home__effect::after {
   background-color: #f3ce5e;
   animation: 2s counterclockwise infinite;
 }
+
 .picture:hover .heading__effect {
   color: #f3ce5e;
 }
+
 .picture:hover .heading__effect::before {
   width: 100%;
 }
@@ -88,74 +95,93 @@ h1 {
     top: -5px;
     left: 0;
   }
+
   12% {
     top: -2px;
     left: 2px;
   }
+
   25% {
     top: 0;
     left: 5px;
   }
+
   37% {
     top: 2px;
     left: 2px;
   }
+
   50% {
     top: 5px;
     left: 0;
   }
+
   62% {
     top: 2px;
     left: -2px;
   }
+
   75% {
     top: 0;
     left: -5px;
   }
+
   87% {
     top: -2px;
     left: -2px;
   }
+
   100% {
     top: -5px;
     left: 0;
   }
 }
+
 @keyframes counterclockwise {
   0% {
     top: -5px;
     right: 0;
   }
+
   12% {
     top: -2px;
     right: 2px;
   }
+
   25% {
     top: 0;
     right: 5px;
   }
+
   37% {
     top: 2px;
     right: 2px;
   }
+
   50% {
     top: 5px;
     right: 0;
   }
+
   62% {
     top: 2px;
     right: -2px;
   }
+
   75% {
     top: 0;
     right: -5px;
   }
+
   87% {
     top: -2px;
     right: -2px;
   }
+
   100% {
     top: -5px;
     right: 0;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */

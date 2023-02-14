@@ -15,10 +15,8 @@
     align-items: center;
     justify-content: center;
     margin: 20px auto;
-    width: 250px;
-    height: 250px;
+    @include homeStyle();
     background-color: rgb(211, 215, 216);
-    border-radius: 75px;
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 2px;
@@ -48,6 +46,7 @@
         box-shadow: 0 5px 35px 0px rgb(0 0 0 / 10%);
 
         &::before, &::after {
+            @include homeStyle();
             @include homePseudoElement();
             background-color: #fda8cf;
             z-index: -1;
