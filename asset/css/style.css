@@ -1,5 +1,161 @@
+/* GLOBAL */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  color: rgb(204, 204, 204);
+  font-family: "Times New Roman", Times, serif;
+}
+
+/*HOME PAGE*/
+#homeBody {
+  background-image: url(/asset/img/bg.jpg);
+  background-size: cover;
+}
+
+.home {
+  margin-top: 200px;
+}
+
+.home__effect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 250px;
+  height: 250px;
+  background-color: rgb(211, 215, 216);
+  border-radius: 75px;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 2px;
+  transition: 1s box-shadow;
+  position: relative;
+}
+
+.heading__effect {
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  position: relative;
+}
+.heading__effect::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  bottom: 0;
+  height: 3px;
+  background-color: #f3ce5e;
+  transition: width 0.25s ease-out;
+}
+
+.picture:hover .home__effect {
+  box-shadow: 0 5px 35px 0px rgba(0, 0, 0, 0.1);
+}
+.picture:hover .home__effect::before, .picture:hover .home__effect::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 75px;
+  background-color: #fda8cf;
+  z-index: -1;
+  animation: 1s clockwise infinite;
+}
+.picture:hover .home__effect::after {
+  background-color: #f3ce5e;
+  animation: 2s counterclockwise infinite;
+}
+.picture:hover .heading__effect {
+  color: #f3ce5e;
+}
+.picture:hover .heading__effect::before {
+  width: 100%;
+}
+
+/* ANIMATION FOR HOME */
+@keyframes clockwise {
+  0% {
+    top: -5px;
+    left: 0;
+  }
+  12% {
+    top: -2px;
+    left: 2px;
+  }
+  25% {
+    top: 0;
+    left: 5px;
+  }
+  37% {
+    top: 2px;
+    left: 2px;
+  }
+  50% {
+    top: 5px;
+    left: 0;
+  }
+  62% {
+    top: 2px;
+    left: -2px;
+  }
+  75% {
+    top: 0;
+    left: -5px;
+  }
+  87% {
+    top: -2px;
+    left: -2px;
+  }
+  100% {
+    top: -5px;
+    left: 0;
+  }
+}
+@keyframes counterclockwise {
+  0% {
+    top: -5px;
+    right: 0;
+  }
+  12% {
+    top: -2px;
+    right: 2px;
+  }
+  25% {
+    top: 0;
+    right: 5px;
+  }
+  37% {
+    top: 2px;
+    right: 2px;
+  }
+  50% {
+    top: 5px;
+    right: 0;
+  }
+  62% {
+    top: 2px;
+    right: -2px;
+  }
+  75% {
+    top: 0;
+    right: -5px;
+  }
+  87% {
+    top: -2px;
+    right: -2px;
+  }
+  100% {
+    top: -5px;
+    right: 0;
+  }
 }/*# sourceMappingURL=style.css.map */
