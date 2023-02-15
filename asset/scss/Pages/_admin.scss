@@ -1,0 +1,19 @@
+/* ADMIN PAGE*/
+#adminBody{
+    padding-top: 70px;
+    background-color: #f7f7f7;
+}
+
+.adminHeader{
+    background-color: rgba(0, 0, 0, 0.8);
+    #adminNav{
+        a{
+            color: white;
+            transition: 0.3s all ease-in-out;
+            &:hover{
+                transform: scale(1.15);
+            }
+        }
+    }
+}
+
