@@ -1,6 +1,6 @@
+/* HOME PAGE */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
-/*HOME PAGE*/
 #homeBody {
     background-image: url(/asset/img/bg.jpg);
     background-size: cover;
@@ -8,20 +8,20 @@
 
 .home {
     margin-top: 200px;
-}
 
-.home__effect {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px auto;
-    @include homeStyle();
-    background-color: rgb(211, 215, 216);
-    font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 2px;
-    transition: 1s box-shadow;
-    position: relative;
+    &__effect {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px auto;
+        @include homeStyle();
+        background-color: rgb(211, 215, 216);
+        font-size: 20px;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 2px;
+        transition: 1s box-shadow;
+        position: relative;
+    }
 }
 
 .heading__effect {
@@ -45,7 +45,8 @@
     .home__effect {
         box-shadow: 0 5px 35px 0px rgb(0 0 0 / 10%);
 
-        &::before, &::after {
+        &::before,
+        &::after {
             @include homeStyle();
             @include homePseudoElement();
             background-color: #fda8cf;
@@ -53,14 +54,16 @@
             animation: 1s clockwise infinite;
         }
 
-        &::after{
+        &::after {
             background-color: #f3ce5e;
             animation: 2s counterclockwise infinite;
         }
     }
-    .heading__effect{
+
+    .heading__effect {
         color: #f3ce5e;
-        &::before{
+
+        &::before {
             width: 100%;
         }
     }

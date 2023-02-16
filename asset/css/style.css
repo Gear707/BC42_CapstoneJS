@@ -1,5 +1,6 @@
 /* GLOBAL */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
 
 * {
   margin: 0;
@@ -16,7 +17,7 @@ h1 {
   font-family: "Times New Roman", Times, serif;
 }
 
-/*HOME PAGE*/
+/* HOME PAGE */
 #homeBody {
   background-image: url(/asset/img/bg.jpg);
   background-size: cover;
@@ -190,17 +191,57 @@ h1 {
   background-color: #f7f7f7;
 }
 
-.adminHeader {
+.admin__header {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.adminHeader #adminNav a {
+.admin__header #adminNav a {
   color: white;
   transition: 0.3s all ease-in-out;
 }
 
-.adminHeader #adminNav a:hover {
+.admin__header #adminNav a:hover {
   transform: scale(1.15);
+}
+
+.phone__content {
+  background-color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+.phone__banner {
+  background-color: rgba(29, 38, 113, 0.7);
+  border-radius: 10px 10px 0 0;
+  align-items: center;
+}
+
+#phoneModal header h3 {
+  padding-top: 15px;
+  text-align: center;
+  font-size: 210%;
+  font-family: "Playfair Display", serif;
+  color: #3e403f;
+}
+
+#phoneForm {
+  width: 450px;
+  min-height: 500px;
+  height: auto;
+  border-radius: 5px;
+  margin: 2% auto;
+  box-shadow: 0 9px 50px hsla(216deg, 83%, 68%, 0.31);
+  padding: 2%;
+  background-image: linear-gradient(250deg, #e3ecfd, #fff0e8);
+}
+
+#phoneForm .pForm__item {
+  padding: 5px 0;
+  margin-bottom: 0;
+}
+
+#phoneForm .pForm__item .pForm_noti {
+  color: red;
+  margin-left: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */

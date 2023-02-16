@@ -22,7 +22,7 @@
 
 <body id="adminBody">
     <!-- HEADER -->
-    <header class="adminHeader fixed-top mb-5">
+    <header class="admin__header fixed-top mb-5">
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand mr-5 text-white" href="#">
@@ -35,16 +35,18 @@
                 <div class="collapse navbar-collapse" id="adminNav">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item text-center mx-5">
-                            <a class="nav-link active" href="/index.html" role="button" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link active" href="/index.html" role="button" aria-haspopup="true"
+                                aria-expanded="false">
                                 <div><i class="fa-solid fa-house fa-xl"></i></div>Home
                             </a>
                         </li>
                         <li class="nav-item text-center">
-                            <a class="nav-link active" href="/store/view/store.html" role="button" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link active" href="/store/view/store.html" role="button" aria-haspopup="true"
+                                aria-expanded="false">
                                 <div><i class="fa-solid fa-store fa-xl"></i></div>Store
                             </a>
                         </li>
-                    </ul>    
+                    </ul>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item text-center">
                             <a class="nav-link active" href="#">
@@ -59,9 +61,149 @@
                 </div>
             </nav>
         </div>
-        
+
     </header>
     <!-- END HEADER -->
+
+    <!-- PHONE -->
+    <section class="phone container py-5">
+        <div class="phone__content mt-5">
+            <div class="phone__banner d-flex justify-content-between p-3">
+                <h3 class="text-light">Phone Management</h3>
+                <div>
+                    <button class="btn btn-success" data-toggle="modal" data-target="#phoneModal">
+                        <i class="fa-solid fa-circle-plus mr-2"></i>Add Phone
+                    </button>
+                </div>
+            </div>
+            <div class="phone__table">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Photo</th>
+                            <th>Description</th>
+                            <th><i class="fa-solid fa-gear"></i>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="phoneTable"></tbody>
+                </table>
+            </div>
+            <div class="modal fade" id="phoneModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <header>
+                            <h3 id="modalTitle">Phone Management</h3>
+                        </header>
+                        <div class="modal-body">
+                            <form id="phoneForm">
+                                <div class="pForm__item form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa-solid fa-mobile-screen-button"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control" id="name" placeholder="Name">
+                                    </div>
+                                    <span class="pForm_noti" id="notiName"></span>
+                                </div>
+                                <div class="pForm__item form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa-solid fa-dollar-sign"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control" id="price" placeholder="Price">
+                                    </div>
+                                    <span class="pForm_noti" id="notiPrice"></span>
+                                </div>
+                                <div class="pForm__item form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa-solid fa-mobile-screen"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control" id="screen" placeholder="Screen">
+                                    </div>
+                                    <span class="pForm_noti" id="notiScreen"></span>
+                                </div>
+                                <div class="pForm__item form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa-solid fa-camera"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control" id="backCam" placeholder="Back Camera">
+                                    </div>
+                                    <span class="pForm_noti" id="notiBackCam"></span>
+                                </div>
+                                <div class="pForm__item form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa-solid fa-camera"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control" id="frontCam" placeholder="Front Camera">
+                                    </div>
+                                    <span class="pForm_noti" id="notiFrontCam"></span>
+                                </div>
+                                <div class="pForm__item form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa-solid fa-link"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control" id="img" placeholder="Image link">
+                                    </div>
+                                    <span class="pForm_noti" id="notiImg"></span>
+                                </div>
+                                <div class="pForm__item form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa-solid fa-comment"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control" id="desc" placeholder="Description">
+                                    </div>
+                                    <span class="pForm_noti" id="notiDesc"></span>
+                                </div>
+                                <div class="pForm__item form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa-solid fa-signature"></i>
+                                            </span>
+                                        </div>
+                                        <select class="form-control" id="type">
+                                            <option selected disabled>Select brand</option>
+                                            <option>Apple</option>
+                                            <option>SamSung</option>
+                                        </select>
+                                    </div>
+                                    <span class="pForm_noti" id="notiType"></span>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="btnClose" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button id="btnAdd" type="button" class="btn btn-info">Add</button>
+                            <button id="btnUpdate" type="button" class="btn btn-info">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END PHONE -->
 
     <!-- BS4 JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
