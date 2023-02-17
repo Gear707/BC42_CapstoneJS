@@ -5,7 +5,7 @@
     border-radius: 75px;
 }
 
-@mixin homePseudoElement() {
+@mixin pseudoElement() {
     display: block;
     content: "";
     position: absolute;

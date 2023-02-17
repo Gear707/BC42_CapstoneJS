@@ -48,7 +48,7 @@
         &::before,
         &::after {
             @include homeStyle();
-            @include homePseudoElement();
+            @include pseudoElement();
             background-color: #fda8cf;
             z-index: -1;
             animation: 1s clockwise infinite;
