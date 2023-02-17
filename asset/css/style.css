@@ -1,13 +1,15 @@
 /* GLOBAL */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-a, a:hover {
+a,
+a:hover {
   text-decoration: none;
 }
 
@@ -25,6 +27,7 @@ h1 {
 .home {
   margin-top: 200px;
 }
+
 .home__effect {
   display: flex;
   align-items: center;
@@ -46,6 +49,7 @@ h1 {
   padding-bottom: 0.25rem;
   position: relative;
 }
+
 .heading__effect::before {
   content: "";
   position: absolute;
@@ -60,7 +64,9 @@ h1 {
 .picture:hover .home__effect {
   box-shadow: 0 5px 35px 0px rgba(0, 0, 0, 0.1);
 }
-.picture:hover .home__effect::before, .picture:hover .home__effect::after {
+
+.picture:hover .home__effect::before,
+.picture:hover .home__effect::after {
   width: 250px;
   height: 250px;
   border-radius: 75px;
@@ -71,13 +77,16 @@ h1 {
   z-index: -1;
   animation: 1s clockwise infinite;
 }
+
 .picture:hover .home__effect::after {
   background-color: #f3ce5e;
   animation: 2s counterclockwise infinite;
 }
+
 .picture:hover .heading__effect {
   color: #f3ce5e;
 }
+
 .picture:hover .heading__effect::before {
   width: 100%;
 }
@@ -88,77 +97,95 @@ h1 {
     top: -5px;
     left: 0;
   }
+
   12% {
     top: -2px;
     left: 2px;
   }
+
   25% {
     top: 0;
     left: 5px;
   }
+
   37% {
     top: 2px;
     left: 2px;
   }
+
   50% {
     top: 5px;
     left: 0;
   }
+
   62% {
     top: 2px;
     left: -2px;
   }
+
   75% {
     top: 0;
     left: -5px;
   }
+
   87% {
     top: -2px;
     left: -2px;
   }
+
   100% {
     top: -5px;
     left: 0;
   }
 }
+
 @keyframes counterclockwise {
   0% {
     top: -5px;
     right: 0;
   }
+
   12% {
     top: -2px;
     right: 2px;
   }
+
   25% {
     top: 0;
     right: 5px;
   }
+
   37% {
     top: 2px;
     right: 2px;
   }
+
   50% {
     top: 5px;
     right: 0;
   }
+
   62% {
     top: 2px;
     right: -2px;
   }
+
   75% {
     top: 0;
     right: -5px;
   }
+
   87% {
     top: -2px;
     right: -2px;
   }
+
   100% {
     top: -5px;
     right: 0;
   }
 }
+
 /* ADMIN PAGE*/
 #adminBody {
   padding-top: 70px;
@@ -169,10 +196,12 @@ h1 {
 .admin__header {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
 .admin__header #adminNav a {
   color: white;
   transition: 0.3s all ease-in-out;
 }
+
 .admin__header #adminNav a:hover {
   transform: scale(1.15);
 }
@@ -182,6 +211,7 @@ h1 {
   background-color: white;
   border-radius: 10px 10px 0 0;
 }
+
 .phone__banner {
   background-color: rgba(29, 38, 113, 0.7);
   border-radius: 10px 10px 0 0;
@@ -206,10 +236,12 @@ h1 {
   padding: 2%;
   background-image: linear-gradient(250deg, #e3ecfd, #fff0e8);
 }
+
 #phoneForm .pForm__item {
   padding: 5px 0;
   margin-bottom: 0;
 }
+
 #phoneForm .pForm__item .pForm_noti {
   color: red;
   margin-left: 40px;
@@ -219,20 +251,25 @@ h1 {
 footer {
   background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8));
 }
+
 footer a {
   color: #f8f9fa;
   transition: all 0.5s;
 }
+
 footer .footer__sns a {
   display: inline-block;
 }
+
 footer .footer__sns a:hover {
   color: #f8f9fa;
   transform: scale(1.5);
 }
+
 footer .footer__info a {
   position: relative;
 }
+
 footer .footer__info a::before {
   display: block;
   content: "";
@@ -244,15 +281,21 @@ footer .footer__info a::before {
   background-color: #f8f9fa;
   transition: all 0.5s;
 }
+
 footer .footer__info a:hover {
   color: #f8f9fa;
 }
+
 footer .footer__info a:hover::before {
   width: 100%;
 }
+
 footer .footer__copyright {
   background-color: rgba(0, 0, 0, 0.05);
 }
+
 footer .footer__copyright a:hover {
   color: rgb(139, 225, 89);
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
