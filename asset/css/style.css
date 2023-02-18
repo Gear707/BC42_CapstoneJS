@@ -206,6 +206,12 @@ h1 {
   transform: scale(1.15);
 }
 
+.admin__header .navbar-toggler {
+  font-size: 1.5rem;
+  color: rgba(227, 236, 253, 0.8);
+  border-color: rgba(247, 247, 247, 0.5);
+}
+
 /* PHONE */
 .phone__content {
   background-color: white;
@@ -257,20 +263,20 @@ footer a {
   transition: all 0.5s;
 }
 
-footer .footer__sns a {
+.footer__sns a {
   display: inline-block;
 }
 
-footer .footer__sns a:hover {
+.footer__sns a:hover {
   color: #f8f9fa;
   transform: scale(1.5);
 }
 
-footer .footer__info a {
+.footer__info a {
   position: relative;
 }
 
-footer .footer__info a::before {
+.footer__info a::before {
   display: block;
   content: "";
   position: absolute;
@@ -282,20 +288,58 @@ footer .footer__info a::before {
   transition: all 0.5s;
 }
 
-footer .footer__info a:hover {
+.footer__info a:hover {
   color: #f8f9fa;
 }
 
-footer .footer__info a:hover::before {
+.footer__info a:hover::before {
   width: 100%;
 }
 
-footer .footer__copyright {
+.footer__copyright {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-footer .footer__copyright a:hover {
+.footer__copyright a:hover {
   color: rgb(139, 225, 89);
+}
+
+@media screen and (max-width: 500px) {
+  #phoneModal #modalTitle {
+    font-size: 1.9rem;
+  }
+
+  #phoneModal .modal-content .modal-body {
+    padding: 1rem 0;
+  }
+
+  #phoneModal .modal-content .modal-body #phoneForm {
+    width: 370px;
+    margin: auto;
+  }
+
+  #phoneModal .modal-content .modal-body #phoneForm .pForm__item {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #phoneModal #modalTitle {
+    font-size: 1.6rem;
+  }
+
+  #phoneModal .modal-content .modal-body {
+    padding: 1rem 0;
+  }
+
+  #phoneModal .modal-content .modal-body #phoneForm {
+    width: 300px;
+    margin: auto;
+  }
+
+  #phoneModal .modal-content .modal-body #phoneForm .pForm__item {
+    padding: 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

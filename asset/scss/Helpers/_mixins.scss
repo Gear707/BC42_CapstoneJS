@@ -13,3 +13,26 @@
 
 
 // MIXIN FOR ADMIN
+// Quản lý responsive
+$breakpoints: (
+    'large': 1199.98px,
+    'medium': 991.98px,
+    'small': 767.98px,
+    'extra-small': 575.98px,
+    'extra2-small': 500px,
+    'extra3-small': 400px,
+);
+
+@mixin responsive($screen) {
+    @if (map-has-key($map: $breakpoints, $key: $screen)) {
+        $value: map-get($map: $breakpoints, $key: $screen);
+
+        @media screen and (max-width: $value) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "'{$screen}' isn't in breakpoint";
+    }
+}

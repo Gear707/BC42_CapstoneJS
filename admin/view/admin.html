@@ -30,7 +30,7 @@
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#adminNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <i class="fa-solid fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="adminNav">
                     <ul class="navbar-nav mr-auto">
@@ -76,8 +76,8 @@
                     </button>
                 </div>
             </div>
-            <div class="phone__table">
-                <table class="table">
+            <div class="phone__table table-responsive">
+                <table class="table" id="adminTable">
                     <thead class="thead-light">
                         <tr>
                             <th>#</th>
@@ -194,7 +194,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer d-flex justify-content-center">
                             <button id="btnClose" type="button" class="btn btn-secondary"
                                 data-dismiss="modal">Close</button>
                             <button id="btnAdd" type="button" class="btn btn-info">Add</button>
@@ -210,7 +210,7 @@
     <!-- FOOTER -->
     <footer class="bg-dark text-light">
         <section class="footer__sns d-flex justify-content-center border-bottom p-4">
-            <div class="mr-5">Get connected with us on social networks:</div>
+            <div class="mr-5 d-none d-lg-block">Get connected with us on social networks:</div>
             <div>
                 <a href="#" class="mr-4">
                     <i class="fa-brands fa-facebook-f"></i>
@@ -232,29 +232,29 @@
                 </a>
             </div>
         </section>
-        <section class="footer__info container mt-5">
+        <section class="footer__info container mt-5 text-center text-md-left">
             <div class="row">
-                <div class="col-3 mx-auto">
+                <div class="col-md-3 mx-auto mb-4">
                     <h6 class="mb-4"><i class="fa-solid fa-robot fa-lg mr-3"></i>CYBERPHONE</h6>
                     <p>We pride ourselves on our efficiency and hard work, but most of all our ability to source you the
                         best quality and best value products and devices in the market.
                     </p>
                 </div>
-                <div class="col-2 mx-auto">
+                <div class="col-md-2 mx-auto mb-4">
                     <h6 class="mb-4">BRANDS</h6>
                     <p><a href="#">Apple</a></p>
                     <p><a href="#">Samsung</a></p>
                     <p><a href="#">Xiaomi</a></p>
                     <p><a href="#">Oppo</a></p>
                 </div>
-                <div class="col-2 mx-auto">
+                <div class="col-md-2 mx-auto mb-4">
                     <h6 class="mb-4">LINKS</h6>
                     <p><a href="#">Pricing</a></p>
                     <p><a href="#">Setting</a></p>
                     <p><a href="#">Order</a></p>
                     <p><a href="#">Help</a></p>
                 </div>
-                <div class="col-3 mx-auto">
+                <div class="col-md-3 mx-auto mb-4 mb-md-0">
                     <h6 class="mb-4">CONTACT</h6>
                     <p><i class="fa-solid fa-house mr-3"></i>Phu Nhuan, HCM city, VN</p>
                     <p><i class="fa-solid fa-envelope mr-3"></i>cyberphone@mail.com</p>
