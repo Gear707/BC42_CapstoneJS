@@ -1,0 +1,50 @@
+.carousel {
+    background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)),
+        url(../../../asset/img/banner.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 629px;
+    .container{
+        .row{
+            padding-top: 50px;
+            .col-6:nth-of-type(1){
+                h5{
+                    color: $color-light;
+                    font-weight: 300;
+                    line-height: 1.2;
+                    margin: 1.5rem 0;
+                    font-size: 3.5rem;
+                }
+                .star{
+                    color: rgba(255, 255, 255, 0.5);
+                    margin-bottom: 3rem;
+                    i{
+                        cursor: pointer;
+                        padding-right: 4px;
+                        &:hover{
+                            color: $color-light;
+                        }
+                    }
+                }
+                p{
+                    line-height: 26px;
+                    color: rgba(255,255,255,.5);
+                    padding-bottom: 1rem;
+                    margin-bottom: 1.5rem;
+                    font-size: 1.25rem;
+                    font-weight: 500;
+                }
+                h3{
+                    color: $color-light;
+                    font-weight: 500;
+                    line-height: 1.2;
+                }
+            }
+            .carousel__img {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
