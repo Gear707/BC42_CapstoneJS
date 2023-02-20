@@ -20,7 +20,8 @@
             }
         }
     }
-    .navbar-toggler{
+
+    .navbar-toggler {
         font-size: 1.5rem;
         color: rgb(227, 236, 253, 0.8);
         border-color: rgb(247, 247, 247, 0.5);
@@ -38,6 +39,37 @@
         background-color: rgba(29, 38, 113, 0.7);
         border-radius: $btop-radius;
         align-items: center;
+    }
+
+    #txtSearch {
+        &:focus {
+            border-color: white;
+            box-shadow: none;
+        }
+    }
+
+    #btnOpenForm {
+        transition: all .5s;
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        &:hover {
+            color: #28a745;
+        }
+    }
+
+    .btnEdit {
+        &:hover {
+            color: #007bff;
+        }
+    }
+
+    .btnDelete {
+        &:hover {
+            color: #c82333;
+        }
     }
 }
 
@@ -80,7 +112,6 @@ footer {
 
     a {
         color: $color-1;
-        transition: all 0.5s;
     }
 }
 
@@ -129,18 +160,21 @@ footer {
     }
 }
 
-@include responsive('extra2-small'){
-    #phoneModal{
-        #modalTitle{
+@include responsive('extra2-small') {
+    #phoneModal {
+        #modalTitle {
             font-size: 1.9rem;
         }
-        .modal-content{
-            .modal-body{
+
+        .modal-content {
+            .modal-body {
                 padding: 1rem 0;
-                #phoneForm{
+
+                #phoneForm {
                     width: 370px;
                     margin: auto;
-                    .pForm__item{
+
+                    .pForm__item {
                         padding: 0;
                     }
                 }
@@ -149,18 +183,21 @@ footer {
     }
 }
 
-@include responsive('extra3-small'){
-    #phoneModal{
-        #modalTitle{
+@include responsive('extra3-small') {
+    #phoneModal {
+        #modalTitle {
             font-size: 1.6rem;
         }
-        .modal-content{
-            .modal-body{
+
+        .modal-content {
+            .modal-body {
                 padding: 1rem 0;
-                #phoneForm{
+
+                #phoneForm {
                     width: 300px;
                     margin: auto;
-                    .pForm__item{
+
+                    .pForm__item {
                         padding: 0;
                     }
                 }
