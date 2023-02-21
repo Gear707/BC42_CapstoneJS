@@ -49,12 +49,6 @@
     }
 
     #btnOpenForm {
-        transition: all .5s;
-
-        &:focus {
-            box-shadow: none;
-        }
-
         &:hover {
             color: #28a745;
         }
@@ -69,6 +63,24 @@
     .btnDelete {
         &:hover {
             color: #c82333;
+        }
+    }
+
+    #btnClose {
+        &:hover {
+            color: #6c757d;
+        }
+    }
+
+    #btnAdd {
+        &:hover {
+            color: #17a2b8;
+        }
+    }
+
+    #btnUpdate {
+        &:hover {
+            color: #ffc107;
         }
     }
 }

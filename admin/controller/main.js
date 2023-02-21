@@ -3,9 +3,9 @@ getPhones();
 // Lấy data từ API
 function getPhones(searchValue) {
     getPhoneAPI(searchValue)
-        .then((response) => {
+        .then(response => {
             // gọi API thành công
-            const phones = response.data.map((phone) => {
+            const phones = response.data.map(phone => {
                 return new Phone(
                     phone.id,
                     phone.name,
@@ -23,7 +23,7 @@ function getPhones(searchValue) {
         })
         .catch(error => {
             // gọi API thất bại
-            alert("Failed to get API");
+            // alert("Failed to get API");
         });
 }
 
@@ -47,10 +47,24 @@ function renderPhones(phones) {
         );
     }, "")
 
-    getEle("#phoneTable").innerHTML = html;
+    getEle("#phoneList").innerHTML = html;
 }
 
 
+// DOM
+// Tìm sản phẩm dựa theo tên
+getEle("#txtSearch").addEventListener("keydown", e => {
+    // console.log(e);
+    if (e.key !== "Enter") return;
+
+    const searchValue = e.target.value;
+    getPhones(searchValue);
+})
+
+getEle("#btnOpenForm").addEventListener("click", () => {
+    // khi click mở form thì ẩn nút Update
+    getEle("#btnUpdate").style.display = "none";
+})
 
 
 

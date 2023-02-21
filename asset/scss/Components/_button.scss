@@ -1,3 +1,11 @@
-.btn:hover{
-    background-color: white;
+.btn {
+    transition: all .5s;
+
+    &:hover {
+        background-color: white;
+    }
+
+    &:focus {
+        box-shadow: none;
+    }
 }

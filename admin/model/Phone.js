@@ -1,5 +1,4 @@
 // Tạo class Phone với các properties như dưới
-
 class Phone {
     constructor(id, name, price, screen, backCamera, frontCamera, img, desc, type) {
         this.id = id;

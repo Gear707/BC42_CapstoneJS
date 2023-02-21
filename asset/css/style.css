@@ -25,8 +25,16 @@ h1 {
   font-family: "Times New Roman", Times, serif;
 }
 
+.btn {
+  transition: all 0.5s;
+}
+
 .btn:hover {
   background-color: white;
+}
+
+.btn:focus {
+  box-shadow: none;
 }
 
 .container {
@@ -244,14 +252,6 @@ h1 {
   box-shadow: none;
 }
 
-.phone #btnOpenForm {
-  transition: all 0.5s;
-}
-
-.phone #btnOpenForm:focus {
-  box-shadow: none;
-}
-
 .phone #btnOpenForm:hover {
   color: #28a745;
 }
@@ -262,6 +262,18 @@ h1 {
 
 .phone .btnDelete:hover {
   color: #c82333;
+}
+
+.phone #btnClose:hover {
+  color: #6c757d;
+}
+
+.phone #btnAdd:hover {
+  color: #17a2b8;
+}
+
+.phone #btnUpdate:hover {
+  color: #ffc107;
 }
 
 #phoneModal header h3 {

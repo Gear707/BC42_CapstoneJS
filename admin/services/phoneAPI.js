@@ -1,4 +1,4 @@
-const BASE_URL = "https://63e86417cbdc565873852d8b.mockapi.io/api/products";
+const BASE_URL = "https://63e86417cbdc565873852d8b.mockapi.io/api/product";
 
 function getPhoneAPI(searchValue){
     return axios({
