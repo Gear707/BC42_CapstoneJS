@@ -256,11 +256,11 @@ h1 {
   color: #28a745;
 }
 
-.phone .btnEdit:hover {
+.phone .btn__edit:hover {
   color: #007bff;
 }
 
-.phone .btnDelete:hover {
+.phone .btn__delete:hover {
   color: #c82333;
 }
 

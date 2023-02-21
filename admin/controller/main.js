@@ -23,7 +23,7 @@ function getPhones(searchValue) {
         })
         .catch(error => {
             // gọi API thất bại
-            // alert("Failed to get API");
+            alert("Failed to get API");
         });
 }
 
@@ -36,11 +36,11 @@ function renderPhones(phones) {
                 <td>${index + 1}</td>
                 <td>${phone.name}</td>
                 <td>${phone.price.toLocaleString()}</td>
-                <td><img src=${phone.img} with="70" height="70"/></td>
+                <td><img src=${phone.img} with="100px" height="100px" alt="phone img"/></td>
                 <td>${phone.desc}</td>
                 <td>
-                    <button class="btn btn-primary btnEdit">Edit<i class="fa-regular fa-pen-to-square ml-2"></i></i></button>
-                    <button class="btn btn-danger btnDelete">Delete<i class="fa-regular fa-trash-can ml-2"></i></button>
+                    <button class="btn btn-primary btn__edit">Edit<i class="fa-regular fa-pen-to-square ml-2"></i></i></button>
+                    <button class="btn btn-danger btn__delete ml-2">Delete<i class="fa-regular fa-trash-can ml-2"></i></button>
                 </td>
             </tr>
             `
@@ -65,28 +65,6 @@ getEle("#btnOpenForm").addEventListener("click", () => {
     // khi click mở form thì ẩn nút Update
     getEle("#btnUpdate").style.display = "none";
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // HELPERS
