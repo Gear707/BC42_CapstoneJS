@@ -1,9 +1,10 @@
 getPhones();
 
-// Lấy data từ API
+// Lấy data từ server
 function getPhones(searchValue) {
     getPhoneAPI(searchValue)
         .then(response => {
+            // console.log(response);
             // gọi API thành công
             const phones = response.data.map(phone => {
                 return new Phone(
@@ -23,9 +24,46 @@ function getPhones(searchValue) {
         })
         .catch(error => {
             // gọi API thất bại
-            alert("Failed to get API");
+            console.log("Failed to get data");
         });
 }
+
+
+// Xóa data bên server
+function deletePhones(phoneId) {
+    // khi click vào nút Delete thì sẽ hiển thị alert thông báo xác nhận có muốn xóa data không
+    // sử dụng thư viện SweetAlert2
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    })
+        .then(result => {
+            // console.log(result);
+            // data sẽ chỉ được xóa khi và chỉ khi user click nút confirm (Yes, delete it!)
+            if (result.isConfirmed) {
+                deletePhoneAPI(phoneId)
+                    .then(() => {
+                        // update lại danh sách sau khi xóa
+                        getPhones();
+                        // sẽ hiển thị thông báo xác nhận xóa thành công
+                        Swal.fire(
+                            'Deleted!',
+                            'Your data has been deleted.',
+                            'success'
+                        )
+                    })
+                    .catch(error => {
+                        console.log("Failed to delete data");
+                    });
+            }
+        })
+}
+
 
 // Hiển thị danh sách phone ra table
 function renderPhones(phones) {
@@ -40,7 +78,7 @@ function renderPhones(phones) {
                 <td>${phone.desc}</td>
                 <td>
                     <button class="btn btn-primary btn__edit">Edit<i class="fa-regular fa-pen-to-square ml-2"></i></i></button>
-                    <button class="btn btn-danger btn__delete ml-2">Delete<i class="fa-regular fa-trash-can ml-2"></i></button>
+                    <button class="btn btn-danger btn__delete ml-2" id="btnDelete" onclick="deletePhones(${phone.id})">Delete<i class="fa-regular fa-trash-can ml-2"></i></button>
                 </td>
             </tr>
             `
@@ -57,8 +95,8 @@ getEle("#txtSearch").addEventListener("keydown", e => {
     // console.log(e);
     if (e.key !== "Enter") return;
 
-    const searchValue = e.target.value;
-    getPhones(searchValue);
+    const searchVal = e.target.value;
+    getPhones(searchVal);
 })
 
 getEle("#btnOpenForm").addEventListener("click", () => {
