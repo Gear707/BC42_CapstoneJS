@@ -29,20 +29,13 @@ th {
   text-align: center;
 }
 
-button:focus {
+input:focus {
   box-shadow: none !important;
 }
 
-.btn {
-  transition: all 0.3s;
-}
-
-.btn:hover {
-  background-color: white;
-}
-
+button:focus,
 .btn:focus {
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .container {
@@ -255,34 +248,6 @@ button:focus {
   align-items: center;
 }
 
-.phone #txtSearch:focus {
-  box-shadow: none;
-}
-
-.phone #btnOpenForm:hover {
-  color: #28a745;
-}
-
-.phone .btn__edit:hover {
-  color: #007bff;
-}
-
-.phone .btn__delete:hover {
-  color: #c82333;
-}
-
-.phone #btnClose:hover {
-  color: #6c757d;
-}
-
-.phone #btnAdd:hover {
-  color: #17a2b8;
-}
-
-.phone #btnUpdate:hover {
-  color: #ffc107;
-}
-
 #phoneModal header h3 {
   padding-top: 15px;
   text-align: center;
@@ -310,10 +275,6 @@ button:focus {
 #phoneForm .pForm__item .pForm_noti {
   color: red;
   margin-left: 40px;
-}
-
-#phoneForm input:focus {
-  box-shadow: none;
 }
 
 #phoneForm select:focus {
@@ -367,7 +328,7 @@ footer a {
 }
 
 .footer__copyright a:hover {
-  color: rgb(139, 225, 89);
+  color: #17a2b8;
 }
 
 @media screen and (max-width: 500px) {

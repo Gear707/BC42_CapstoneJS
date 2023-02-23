@@ -1,11 +1,6 @@
+button,
 .btn {
-    transition: all .3s;
-
-    &:hover {
-        background-color: white;
-    }
-
     &:focus {
-        box-shadow: none;
+        box-shadow: none !important;
     }
 }

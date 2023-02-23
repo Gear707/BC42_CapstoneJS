@@ -40,48 +40,6 @@
         border-radius: $btop-radius;
         align-items: center;
     }
-
-    #txtSearch {
-        &:focus {
-            box-shadow: none;
-        }
-    }
-
-    #btnOpenForm {
-        &:hover {
-            color: #28a745;
-        }
-    }
-
-    .btn__edit {
-        &:hover {
-            color: #007bff;
-        }
-    }
-
-    .btn__delete {
-        &:hover {
-            color: #c82333;
-        }
-    }
-
-    #btnClose {
-        &:hover {
-            color: #6c757d;
-        }
-    }
-
-    #btnAdd {
-        &:hover {
-            color: #17a2b8;
-        }
-    }
-
-    #btnUpdate {
-        &:hover {
-            color: #ffc107;
-        }
-    }
 }
 
 #phoneModal {
@@ -113,12 +71,6 @@
         .pForm_noti {
             color: red;
             margin-left: 40px;
-        }
-    }
-
-    input {
-        &:focus {
-            box-shadow: none;
         }
     }
 
@@ -178,7 +130,7 @@ footer {
 
     a {
         &:hover {
-            color: rgba(139, 225, 89);
+            color: #17a2b8;
         }
     }
 }

@@ -90,11 +90,11 @@ function renderPhones(phones) {
                 <td class="text-center">${phone.id}</td>
                 <td>${phone.name}</td>
                 <td class="text-center">${phone.price.toLocaleString()}</td>
-                <td class="text-center"><img src=${phone.img} with="150px" height="150px" alt="phone img"/></td>
+                <td class="text-center"><img src=${phone.img} with="150px" height="150px" alt="phone image"/></td>
                 <td>${phone.desc}</td>
                 <td class="text-center">
-                    <button class="btn btn-primary btn__edit" data-toggle="modal" data-target="#phoneModal">Edit<i class="fa-regular fa-pen-to-square ml-2"></i></i></button>
-                    <button class="btn btn-danger btn__delete ml-2" onclick="deletePhones(${phone.id})">Delete<i class="fa-regular fa-trash-can ml-2"></i></button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#phoneModal">Edit<i class="fa-regular fa-pen-to-square ml-2"></i></i></button>
+                    <button class="btn btn-danger ml-2" onclick="deletePhones(${phone.id})">Delete<i class="fa-regular fa-trash-can ml-2"></i></button>
                 </td>
             </tr>
             `
