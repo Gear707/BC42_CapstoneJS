@@ -29,6 +29,10 @@ th {
   text-align: center;
 }
 
+button:focus {
+  box-shadow: none !important;
+}
+
 .btn {
   transition: all 0.3s;
 }

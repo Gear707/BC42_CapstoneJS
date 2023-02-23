@@ -58,8 +58,6 @@ async function deletePhones(phoneId) {
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
         });
         // data sẽ chỉ được xóa khi và chỉ khi user click nút confirm (result === true)

@@ -18,3 +18,9 @@ h1 {
 th {
     text-align: center;
 }
+
+button {
+    &:focus {
+        box-shadow: none !important;
+    }
+}
