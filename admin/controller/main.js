@@ -5,7 +5,7 @@ getPhones();
 // Lấy data từ server
 async function getPhones(searchVal) {
     try {
-        const {data: phones} = await getPhoneAPI(searchVal);
+        const { data: phones } = await getPhoneAPI(searchVal);
         console.log(phones);
         renderPhones(phones);
     } catch (error) {
@@ -15,12 +15,45 @@ async function getPhones(searchVal) {
 }
 
 
+// Tạo data mới cho server
+getEle("#btnAdd").addEventListener("click", async () => {
+    // khởi tạo object với các thuộc tính chứa giá trị user nhập vào
+    const phone = {
+        name: getEle("#name").value,
+        price: getEle("#price").value,
+        screen: getEle("#screen").value,
+        backCamera: getEle("#bCam").value,
+        frontCamera: getEle("#fCam").value,
+        img: getEle("#img").value,
+        desc: getEle("#desc").value,
+        type: getEle("#type").value
+    }
+
+    try {
+        // gửi request tạo data mới cho server
+        await generatePhoneAPI(phone);
+        // update lại danh sách sau khi tạo mới
+        getPhones();
+        // hiển thị thông báo tạo mới thành công
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'New data has been created',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    } catch (error) {
+        console.log("Failed to add new data", error);
+    }
+})
+
+
 // Xóa data bên server
 async function deletePhones(phoneId) {
     try {
         // khi click vào nút Delete thì sẽ hiển thị alert thông báo xác nhận có muốn xóa data không
         // sử dụng thư viện SweetAlert2 & gán thuộc tính isConfirmed cho biến result
-        const {isConfirmed: result} = await Swal.fire({
+        const { isConfirmed: result } = await Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
             icon: 'warning',
@@ -36,11 +69,13 @@ async function deletePhones(phoneId) {
             // update lại danh sách sau khi xóa
             getPhones();
             // hiển thị thông báo xác nhận xóa thành công
-            Swal.fire(
-                'Deleted!',
-                'Your data has been deleted.',
-                'success'
-            )
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Your data has been deleted',
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     } catch (error) {
         console.log("Failed to delete data", error);
@@ -54,12 +89,12 @@ function renderPhones(phones) {
         return (result +
             `
             <tr>
-                <td>${phone.id}</td>
+                <td class="text-center">${phone.id}</td>
                 <td>${phone.name}</td>
-                <td>${phone.price.toLocaleString()}</td>
-                <td><img src=${phone.img} with="100px" height="100px" alt="phone img"/></td>
+                <td class="text-center">${phone.price.toLocaleString()}</td>
+                <td class="text-center"><img src=${phone.img} with="150px" height="150px" alt="phone img"/></td>
                 <td>${phone.desc}</td>
-                <td>
+                <td class="text-center">
                     <button class="btn btn-primary btn__edit" data-toggle="modal" data-target="#phoneModal">Edit<i class="fa-regular fa-pen-to-square ml-2"></i></i></button>
                     <button class="btn btn-danger btn__delete ml-2" onclick="deletePhones(${phone.id})">Delete<i class="fa-regular fa-trash-can ml-2"></i></button>
                 </td>

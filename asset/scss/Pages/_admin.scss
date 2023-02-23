@@ -43,7 +43,6 @@
 
     #txtSearch {
         &:focus {
-            border-color: white;
             box-shadow: none;
         }
     }
@@ -114,6 +113,18 @@
         .pForm_noti {
             color: red;
             margin-left: 40px;
+        }
+    }
+
+    input {
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    select {
+        &:focus {
+            box-shadow: none;
         }
     }
 }

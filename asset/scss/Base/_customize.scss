@@ -1,6 +1,6 @@
 a {
     text-decoration: none;
-    transition: all .5s;
+    transition: all .3s;
 }
 
 a:hover,
@@ -13,4 +13,8 @@ a:focus {
 h1 {
     color: rgb(204 204 204);
     font-family: 'Times New Roman', Times, serif;
+}
+
+th {
+    text-align: center;
 }

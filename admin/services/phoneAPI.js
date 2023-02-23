@@ -12,6 +12,16 @@ function getPhoneAPI(searchVal) {
 }
 
 
+// Tạo mới data & lưu vào server
+function generatePhoneAPI(phone) {
+    return axios({
+        method: "POST",
+        url: BASE_URL,
+        data: phone
+    });
+}
+
+
 // Xóa data bên phía server
 function deletePhoneAPI(phoneId) {
     return axios({

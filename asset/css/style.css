@@ -10,7 +10,7 @@
 
 a {
   text-decoration: none;
-  transition: all 0.5s;
+  transition: all 0.3s;
 }
 
 a:hover,
@@ -25,8 +25,12 @@ h1 {
   font-family: "Times New Roman", Times, serif;
 }
 
+th {
+  text-align: center;
+}
+
 .btn {
-  transition: all 0.5s;
+  transition: all 0.3s;
 }
 
 .btn:hover {
@@ -248,7 +252,6 @@ h1 {
 }
 
 .phone #txtSearch:focus {
-  border-color: white;
   box-shadow: none;
 }
 
@@ -303,6 +306,14 @@ h1 {
 #phoneForm .pForm__item .pForm_noti {
   color: red;
   margin-left: 40px;
+}
+
+#phoneForm input:focus {
+  box-shadow: none;
+}
+
+#phoneForm select:focus {
+  box-shadow: none;
 }
 
 /* FOOTER */
