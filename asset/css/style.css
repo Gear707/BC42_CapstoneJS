@@ -44,7 +44,7 @@ button:focus,
 
 /* HOME PAGE */
 #homeBody {
-  background-image: url(/asset/img/bg.jpg);
+  background-image: url("/asset/img/bg.jpg");
   background-size: cover;
 }
 
