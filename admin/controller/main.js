@@ -13,6 +13,7 @@ async function getPhones(searchVal) {
     } catch (error) {
         // gọi API thất bại
         console.log("Failed to get data", error);
+        alertFail("Failed to get data");
     }
 }
 
@@ -35,26 +36,18 @@ getEle("#btnAdd").addEventListener("click", async () => {
         // gửi request tạo data mới cho server
         await generatePhoneAPI(phone);
 
-        // tắt form sau khi tạo xong data mới
-        getEle("#btnAdd").setAttribute("data-dismiss", "modal");
-
         // update lại danh sách sau khi tạo mới
-        getPhones();
+        await getPhones();
 
         // hiển thị thông báo tạo mới thành công
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'New data has been created',
-            showConfirmButton: false,
-            timer: 1500
-        });
+        alertSuccess("New data has been created");
 
         // xóa tất cả input trong form
         resetForm("phoneForm");
     } catch (error) {
         // tạo data mới thất bại
         console.log("Failed to add new data", error);
+        alertFail("Failed to add new data");
     }
 })
 
@@ -62,43 +55,36 @@ getEle("#btnAdd").addEventListener("click", async () => {
 // Xóa data bên server
 async function deletePhones(phoneID) {
     try {
-        // khi click vào nút Delete thì sẽ hiển thị alert thông báo xác nhận có muốn xóa data không
-        // sử dụng thư viện SweetAlert2 & gán thuộc tính isConfirmed cho biến result
-        const { isConfirmed: result } = await Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Yes, delete it!'
-        });
+        // hiển thị alert thông báo xác nhận có muốn xóa data không
+        const { isConfirmed: result } = await warningDelete();
+        console.log(result);
         // data sẽ chỉ được xóa khi và chỉ khi user click nút confirm (result === true)
         if (result) {
             // thực hiện xóa data
             await deletePhoneAPI(phoneID);
 
             // update lại danh sách sau khi xóa
-            getPhones();
+            await getPhones();
 
             // hiển thị thông báo xác nhận xóa thành công
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Your data has been deleted',
-                showConfirmButton: false,
-                timer: 1500
-            });
+            alertSuccess("Your data has been deleted");
         }
     } catch (error) {
         // xóa data thất bại
         console.log("Failed to delete data", error);
+        alertFail("Failed to delete data");
     }
 }
 
 
 // Hiển thị chi tiết 1 sản phẩm bất kì lên form sau khi click nút Edit
 async function selectPhone(phoneID) {
+    // ẩn nút Add
     getEle("#btnAdd").style.display = "none";
+    // hiện nút Update
     getEle("#btnUpdate").style.display = "inline-block"
+    // thêm thuộc tính tắt form sau khi click nút Update
+    getEle("#btnUpdate").setAttribute("data-dismiss", "modal");
 
     try {
         // lấy data dựa theo ID từ server
@@ -120,6 +106,7 @@ async function selectPhone(phoneID) {
     } catch (error) {
         // lấy data bằng ID thất bại
         console.log("Failed to get data by ID", error);
+        alertFail("Failed to get data by ID");
     }
 }
 
@@ -142,22 +129,17 @@ async function updatePhone(phoneID) {
         await updatePhoneAPI(phoneID, phone);
 
         // lấy danh sách data sau khi cập nhật & hiển thị lên UI
-        getPhones();
+        await getPhones();
 
         // hiển thị thông báo cập nhật thành công
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your data has been updated',
-            showConfirmButton: false,
-            timer: 1500
-        });
+        alertSuccess("Your data has been updated");
 
         // xóa tất cả input trong form
         resetForm("phoneForm");
     } catch (error) {
         // cập nhật data thất bại
         console.log("Failed to update data", error);
+        alertFail("Failed to update data");
     }
 }
 
@@ -188,18 +170,33 @@ function renderPhones(phones) {
 
 // DOM
 // Tìm sản phẩm dựa theo tên
-getEle("#txtSearch").addEventListener("keydown", e => {
-    // console.log(e);
-    if (e.key !== "Enter") return;
+getEle("#txtSearch").addEventListener("keydown", event => {
+    try {
+        console.log(event);
+        if (event.key !== "Enter") return;
+        const searchVal = event.target.value;
+        getPhones(searchVal);
+    } catch (error) {
+        console.log("Failed to search data", error);
+        alertFail("Failed to search data");
+    }
 
-    const searchVal = e.target.value;
-    getPhones(searchVal);
 })
 
 getEle("#btnOpenForm").addEventListener("click", () => {
+    // ẩn nút Update
     getEle("#btnUpdate").style.display = "none";
+    // hiện nút Add
     getEle("#btnAdd").style.display = "inline-block";
+    // thêm thuộc tính tắt form sau khi click nút Add
+    getEle("#btnAdd").setAttribute("data-dismiss", "modal");
 })
+
+getEle("#btnClose").addEventListener("click", () => {
+    // cứ mỗi lần click nút Close thì sẽ reset toàn bộ các field trong form
+    resetForm("phoneForm");
+})
+
 
 // HELPERS
 function getEle(selector) {
