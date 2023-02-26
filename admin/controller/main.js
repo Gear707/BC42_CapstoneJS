@@ -6,10 +6,23 @@ getPhones();
 async function getPhones(searchVal) {
     try {
         // gọi API thành công
-        const { data: phones } = await getPhoneAPI(searchVal);
-        console.log(phones);
+        const resData = await getPhoneAPI(searchVal);
+        const phone = resData.map(phone => {
+            return new Phone(
+                phone.id,
+                phone.name,
+                phone.price,
+                phone.screen,
+                phone.backCamera,
+                phone.frontCamera,
+                phone.img,
+                phone.desc,
+                phone.type
+            );
+        });
+        console.log(phone);
         // hiển thị danh sách data lên UI
-        renderPhones(phones);
+        renderPhones(phone);
     } catch (error) {
         // gọi API thất bại
         console.log("Failed to get data", error);
@@ -88,7 +101,7 @@ async function selectPhone(phoneID) {
 
     try {
         // lấy data dựa theo ID từ server
-        const { data: phone } = await getPhoneAPIByID(phoneID);
+        const phone = await getPhoneAPIByID(phoneID);
 
         // hiển thị thông tin của từng thuộc tính lên field của form
         getEle("#name").value = phone.name;

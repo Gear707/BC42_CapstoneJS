@@ -10,7 +10,7 @@ async function getPhoneAPI(searchVal) {
                 name: searchVal || undefined
             }
         });
-        return response;
+        return response.data;
     } catch (error) {
         console.log(error);
     }
@@ -51,7 +51,7 @@ async function getPhoneAPIByID(phoneID) {
             method: "GET",
             url: `${BASE_URL}/${phoneID}`
         });
-        return response;
+        return response.data;
     } catch (error) {
         console.log(error);
     }
