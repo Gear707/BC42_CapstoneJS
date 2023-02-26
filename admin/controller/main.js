@@ -6,9 +6,12 @@ getPhones();
 async function getPhones(searchVal) {
     try {
         // gọi API thành công
-        const resData = await getPhoneAPI(searchVal);
-        const phone = resData.map(phone => {
-            return new Phone(
+        const response = await getPhoneAPI(searchVal);
+        console.log(response);
+
+        // map về class Phone đã được khởi tạo
+        const phone = response.data.map(phone => {
+            return new Phone (
                 phone.id,
                 phone.name,
                 phone.price,
@@ -21,11 +24,12 @@ async function getPhones(searchVal) {
             );
         });
         console.log(phone);
+
         // hiển thị danh sách data lên UI
         renderPhones(phone);
     } catch (error) {
         // gọi API thất bại
-        console.log("Failed to get data", error);
+        console.log(error);
         alertFail("Failed to get data");
     }
 }
@@ -59,14 +63,14 @@ getEle("#btnAdd").addEventListener("click", async () => {
         resetForm("phoneForm");
     } catch (error) {
         // tạo data mới thất bại
-        console.log("Failed to add new data", error);
+        console.log(error);
         alertFail("Failed to add new data");
     }
 })
 
 
 // Xóa data bên server
-async function deletePhones(phoneID) {
+async function deletePhone(phoneID) {
     try {
         // hiển thị alert thông báo xác nhận có muốn xóa data không
         const { isConfirmed: result } = await warningDelete();
@@ -84,7 +88,7 @@ async function deletePhones(phoneID) {
         }
     } catch (error) {
         // xóa data thất bại
-        console.log("Failed to delete data", error);
+        console.log(error);
         alertFail("Failed to delete data");
     }
 }
@@ -94,14 +98,17 @@ async function deletePhones(phoneID) {
 async function selectPhone(phoneID) {
     // ẩn nút Add
     getEle("#btnAdd").style.display = "none";
+
     // hiện nút Update
-    getEle("#btnUpdate").style.display = "inline-block"
+    getEle("#btnUpdate").style.display = "inline-block";
+
     // thêm thuộc tính tắt form sau khi click nút Update
     getEle("#btnUpdate").setAttribute("data-dismiss", "modal");
 
     try {
         // lấy data dựa theo ID từ server
-        const phone = await getPhoneAPIByID(phoneID);
+        const {data: phone} = await getPhoneAPIByID(phoneID);
+        console.log(phone);
 
         // hiển thị thông tin của từng thuộc tính lên field của form
         getEle("#name").value = phone.name;
@@ -118,7 +125,7 @@ async function selectPhone(phoneID) {
 
     } catch (error) {
         // lấy data bằng ID thất bại
-        console.log("Failed to get data by ID", error);
+        console.log(error);
         alertFail("Failed to get data by ID");
     }
 }
@@ -151,7 +158,7 @@ async function updatePhone(phoneID) {
         resetForm("phoneForm");
     } catch (error) {
         // cập nhật data thất bại
-        console.log("Failed to update data", error);
+        console.log(error);
         alertFail("Failed to update data");
     }
 }
@@ -163,14 +170,14 @@ function renderPhones(phones) {
         return (result +
             `
             <tr>
-                <td class="text-center">${phone.id}</td>
+                <th scope="row">${phone.id}</th>
                 <td>${phone.name}</td>
                 <td class="text-center">${phone.price.toLocaleString()}</td>
                 <td class="text-center"><img src=${phone.img} with="150px" height="150px" alt="phone image"/></td>
                 <td>${phone.desc}</td>
                 <td class="text-center">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#phoneModal" onclick="selectPhone(${phone.id})">Edit<i class="fa-regular fa-pen-to-square ml-2"></i></i></button>
-                    <button class="btn btn-danger ml-2" onclick="deletePhones(${phone.id})">Delete<i class="fa-regular fa-trash-can ml-2"></i></button>
+                    <button class="btn btn-primary my-1" data-toggle="modal" data-target="#phoneModal" onclick="selectPhone(${phone.id})">Edit<i class="fa-regular fa-pen-to-square ml-2"></i></button>
+                    <button class="btn btn-danger my-1" onclick="deletePhone(${phone.id})">Delete<i class="fa-regular fa-trash-can ml-2"></i></button>
                 </td>
             </tr>
             `
@@ -187,10 +194,11 @@ getEle("#txtSearch").addEventListener("keydown", event => {
     try {
         console.log(event);
         if (event.key !== "Enter") return;
+
         const searchVal = event.target.value;
         getPhones(searchVal);
     } catch (error) {
-        console.log("Failed to search data", error);
+        console.log(error);
         alertFail("Failed to search data");
     }
 
