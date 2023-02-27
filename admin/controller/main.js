@@ -1,7 +1,6 @@
 // Lấy data từ server & hiển thị danh sách ngay sau khi mở web
 getPhones();
 
-
 // Lấy data từ server
 async function getPhones(searchVal) {
     try {
@@ -11,7 +10,7 @@ async function getPhones(searchVal) {
 
         // map về class Phone đã được khởi tạo
         const phone = response.data.map(phone => {
-            return new Phone (
+            return new Phone(
                 phone.id,
                 phone.name,
                 phone.price,
@@ -49,7 +48,16 @@ getEle("#btnAdd").addEventListener("click", async () => {
         type: getEle("#type").value
     };
 
+    // kiểm tra tính hợp lệ của các input
+    let isValid = validateData();
+    if (!isValid) {
+        return;
+    }
+
     try {
+        // thêm thuộc tính tắt form sau khi click nút Add
+        // getEle("#btnAdd").setAttribute("data-dismiss", "modal");
+
         // gửi request tạo data mới cho server
         await generatePhoneAPI(phone);
 
@@ -58,14 +66,14 @@ getEle("#btnAdd").addEventListener("click", async () => {
 
         // hiển thị thông báo tạo mới thành công
         alertSuccess("New data has been created");
-
-        // xóa tất cả input trong form
-        resetForm("phoneForm");
     } catch (error) {
         // tạo data mới thất bại
         console.log(error);
         alertFail("Failed to add new data");
     }
+
+    // xóa tất cả input trong form
+    resetForm("phoneForm");
 })
 
 
@@ -102,12 +110,9 @@ async function selectPhone(phoneID) {
     // hiện nút Update
     getEle("#btnUpdate").style.display = "inline-block";
 
-    // thêm thuộc tính tắt form sau khi click nút Update
-    getEle("#btnUpdate").setAttribute("data-dismiss", "modal");
-
     try {
         // lấy data dựa theo ID từ server
-        const {data: phone} = await getPhoneAPIByID(phoneID);
+        const { data: phone } = await getPhoneAPIByID(phoneID);
         console.log(phone);
 
         // hiển thị thông tin của từng thuộc tính lên field của form
@@ -144,7 +149,16 @@ async function updatePhone(phoneID) {
         type: getEle("#type").value
     };
 
+    // kiểm tra tính hợp lệ của các input
+    let isValid = validateData();
+    if (!isValid) {
+        return;
+    }
+
     try {
+        // thêm thuộc tính tắt form sau khi click nút Update
+        // getEle("#btnUpdate").setAttribute("data-dismiss", "modal");
+
         // gửi request cập nhật data cho server
         await updatePhoneAPI(phoneID, phone);
 
@@ -153,24 +167,24 @@ async function updatePhone(phoneID) {
 
         // hiển thị thông báo cập nhật thành công
         alertSuccess("Your data has been updated");
-
-        // xóa tất cả input trong form
-        resetForm("phoneForm");
     } catch (error) {
         // cập nhật data thất bại
         console.log(error);
         alertFail("Failed to update data");
     }
+
+    // xóa tất cả input trong form
+    resetForm("phoneForm");
 }
 
 
 // Hiển thị danh sách phone ra table
 function renderPhones(phones) {
-    let html = phones.reduce((result, phone) => {
+    let html = phones.reduce((result, phone, index) => {
         return (result +
             `
             <tr>
-                <th scope="row">${phone.id}</th>
+                <th>${phone.id}</th>
                 <td>${phone.name}</td>
                 <td class="text-center">${phone.price.toLocaleString()}</td>
                 <td class="text-center"><img src=${phone.img} with="150px" height="150px" alt="phone image"/></td>
@@ -209,8 +223,6 @@ getEle("#btnOpenForm").addEventListener("click", () => {
     getEle("#btnUpdate").style.display = "none";
     // hiện nút Add
     getEle("#btnAdd").style.display = "inline-block";
-    // thêm thuộc tính tắt form sau khi click nút Add
-    getEle("#btnAdd").setAttribute("data-dismiss", "modal");
 })
 
 getEle("#btnClose").addEventListener("click", () => {
@@ -225,5 +237,14 @@ function getEle(selector) {
 }
 
 function resetForm(formID) {
-    return document.getElementById(formID).reset();
+    document.getElementById(formID).reset();
+    getEle("#notiName").innerHTML = '';
+    getEle("#notiPrice").innerHTML = '';
+    getEle("#notiScreen").innerHTML = '';
+    getEle("#notiBCam").innerHTML = '';
+    getEle("#notiFCam").innerHTML = '';
+    getEle("#notiImg").innerHTML = '';
+    getEle("#notiDesc").innerHTML = '';
+    getEle("#notiType").innerHTML = '';
 }
+

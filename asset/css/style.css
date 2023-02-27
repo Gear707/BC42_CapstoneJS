@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* GLOBAL */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
@@ -37,9 +38,48 @@ input:focus {
   overflow: unset;
 }
 
-button:focus,
 .btn:focus {
   box-shadow: none !important;
+}
+
+.btn:hover {
+  animation: btnAnimaton 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes btnAnimaton {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(2px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.table-sortable th {
+  cursor: pointer;
+}
+
+.table-sortable .th-sort-asc::after {
+  content: "▴";
+}
+
+.table-sortable .th-sort-desc::after {
+  content: "▾";
+}
+
+.table-sortable .th-sort-asc::after,
+.table-sortable .th-sort-desc::after {
+  margin-left: 5px;
+}
+
+.table-sortable .th-sort-asc,
+.table-sortable .th-sort-desc {
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .container {

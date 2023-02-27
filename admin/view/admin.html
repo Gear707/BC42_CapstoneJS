@@ -85,15 +85,15 @@
                 </div>
             </div>
             <div class="phone__table table-responsive">
-                <table class="table" id="adminTable">
+                <table class="table table-sortable" id="adminTable">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Photo/Image</th>
-                            <th scope="col">Description</th>
-                            <th scope="col"><i class="fa-solid fa-gear"></i> Action</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Photo/Image</th>
+                            <th>Description</th>
+                            <th><i class="fa-solid fa-gear"></i> Action</th>
                         </tr>
                     </thead>
                     <tbody id="phoneList"></tbody>
@@ -274,7 +274,7 @@
         </section>
     </footer>
     <!-- END FOOTER -->
-    
+
     <!-- BS4 JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
@@ -293,6 +293,8 @@
     <script src="../model/Phone.js"></script>
     <script src="../services/phoneAPI.js"></script>
     <script src="../services/sweet-alert.js"></script>
+    <script src="../controller/validate.js"></script>
+    <script src="../controller/tablesort.js"></script>
     <script src="../controller/main.js"></script>
 </body>
 
