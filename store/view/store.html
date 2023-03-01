@@ -23,9 +23,9 @@
   </head>
   <link rel="stylesheet" href="/asset/css/style.css" />
   <body>
-    <header>
+    <header id="header">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container mb-5">
+        <div class="container" id="srollEL">
           <a class="navbar-brand" href="#">
             <i class="fa-solid fa-robot"></i>
             Cyber Phone
@@ -53,7 +53,8 @@
               </a>
             </div>
             <div class="navbar-nav">
-              <a class="nav-link">
+              <a class="nav-link" onclick="renderCart()">
+                <span class="quantityCart"></span>
                 <i class="fa-solid fa-cart-shopping"></i>
                 Cart
               </a>
@@ -94,19 +95,78 @@
         </div>
       </div>
     </div>
+    <!-- cart -->
+    <div class="meh">
+      <div class="cart">
+        <div class="cart__overlay" id="cart__overlay"></div>
+        <div class="cart__contents d-none" id="cart__contents">
+          <div class="cart__products">
+            <h2>Shopping Cart</h2>
+            <p class="microcopy">An overview of your selected products.</p>
+            <div class="products" id="cartList"></div>
+          </div>
+          <div class="cart__totals">
+            <table class="totals">
+              <tbody>
+                <tr>
+                  <th class="align-left font-normal tertiary">Subtotal</th>
+                  <td class="align-right" id="subTotal">$0</td>
+                </tr>
+                <tr>
+                  <th class="align-left font-normal tertiary">
+                    Shipping <small>(estimated)</small>
+                  </th>
+                  <td class="align-right" id="shipping">$0</td>
+                </tr>
+                <tr>
+                  <th class="align-left font-normal tertiary">
+                    Tax <small>(estimated)</small>
+                  </th>
+                  <td class="align-right" id="tax">$0</td>
+                </tr>
+                <tr>
+                  <th class="align-left">Total</th>
+                  <td class="align-right" id="priceTotal">$0</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2" class="tertiary">
+                    <small>Estimations based on New York, United States</small>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+            <div class="form__footer">
+              <button class="btn first js-toggle-cart">
+                Continue Shopping
+              </button>
+              <button
+                class="btn me-5 ms-0 px-4"
+                onclick="emptyCart()"
+                id="emptyCart"
+              >
+                <i class="fa-solid fa-trash me-2"></i> Empty Cart
+              </button>
+              <button class="btn" onclick="payNow()">Pay Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- product -->
     <div class="product">
       <div class="container">
         <div class="my-5">
           <div class="product__top">
-            <select name="brands" id="brands">
+            <select name="brands" id="brands" class="form-select w-25 mb-5">
               <option value="all">All Brands</option>
               <option value="Apple">Apple</option>
               <option value="Samsung">Samsung</option>
             </select>
           </div>
           <div class="product__bottom">
-            <div class="row"></div>
+            <div class="row mx-0 gy-4" id="phoneList"></div>
           </div>
         </div>
       </div>
@@ -255,5 +315,53 @@
       integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"
+      integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      let header = document.getElementById("header");
+      let srollEL = document.getElementById("srollEL");
+      window.addEventListener("scroll", function () {
+        let sclY = this.scrollY; //scroll theo chieu doc
+        if (sclY > 0) {
+          srollEL.style.height = "100%";
+          header.style.background = `rgba(0, 0, 0, 0.8)`;
+          header.style.paddingTop = `0px`;
+          header.style.zIndex = `99999999999999`;
+          header.style.width = "100%";
+        } else {
+          srollEL.style.height = "100%";
+          header.style.background = `none`;
+          header.style.zIndex = `9999999999999`;
+          header.style.boxShadow = `none`;
+          header.style.width = "100%";
+        }
+      });
+    </script>
+    <script>
+      function renderCart() {
+        let cartOverlay = document.getElementById("cart__overlay");
+        let cartContents = document.getElementById("cart__contents");
+
+        cartContents.classList.toggle("d-block");
+
+        if ((cartContents.style.display = "none")) {
+          cartOverlay.style.zIndex = "10000";
+          cartContents.style.zIndex = "10000";
+        } else {
+          cartOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+          // cartOverlay.style.backgroundColor.toggle();
+          cartOverlay.style.zIndex.toggle();
+          cartContents.style.zIndex.toggle();
+        }
+      }
+    </script>
+
+    <script src="../model/model.js"></script>
+    <script src="../services/services.js"></script>
+    <script src="../controller/main.js"></script>
   </body>
 </html>
