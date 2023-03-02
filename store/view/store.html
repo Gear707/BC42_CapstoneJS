@@ -22,7 +22,7 @@
     />
   </head>
   <link rel="stylesheet" href="/asset/css/style.css" />
-  <body>
+  <body class="body">
     <header id="header">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container" id="srollEL">
@@ -53,8 +53,8 @@
               </a>
             </div>
             <div class="navbar-nav">
-              <a class="nav-link" onclick="renderCart()">
-                <span class="quantityCart"></span>
+              <a class="nav-link" onclick="displayCart()">
+                <span class="quantityCart" id="quantityCart"></span>
                 <i class="fa-solid fa-cart-shopping"></i>
                 Cart
               </a>
@@ -98,7 +98,7 @@
     <!-- cart -->
     <div class="meh">
       <div class="cart">
-        <div class="cart__overlay" id="cart__overlay"></div>
+        <div class="cart__overlay d-none" id="cart__overlay"></div>
         <div class="cart__contents d-none" id="cart__contents">
           <div class="cart__products">
             <h2>Shopping Cart</h2>
@@ -110,23 +110,23 @@
               <tbody>
                 <tr>
                   <th class="align-left font-normal tertiary">Subtotal</th>
-                  <td class="align-right" id="subTotal">$0</td>
+                  <td class="align-right" id="subTotal"></td>
                 </tr>
                 <tr>
                   <th class="align-left font-normal tertiary">
                     Shipping <small>(estimated)</small>
                   </th>
-                  <td class="align-right" id="shipping">$0</td>
+                  <td class="align-right" id="shipping"></td>
                 </tr>
                 <tr>
                   <th class="align-left font-normal tertiary">
                     Tax <small>(estimated)</small>
                   </th>
-                  <td class="align-right" id="tax">$0</td>
+                  <td class="align-right" id="tax"></td>
                 </tr>
                 <tr>
                   <th class="align-left">Total</th>
-                  <td class="align-right" id="priceTotal">$0</td>
+                  <td class="align-right" id="priceTotal"></td>
                 </tr>
               </tbody>
               <tfoot>
@@ -342,20 +342,22 @@
       });
     </script>
     <script>
-      function renderCart() {
+      let flag = false;
+      function displayCart() {
         let cartOverlay = document.getElementById("cart__overlay");
         let cartContents = document.getElementById("cart__contents");
-
+        cartOverlay.classList.toggle("d-block");
         cartContents.classList.toggle("d-block");
-
-        if ((cartContents.style.display = "none")) {
-          cartOverlay.style.zIndex = "10000";
-          cartContents.style.zIndex = "10000";
-        } else {
+        if (!flag) {
           cartOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-          // cartOverlay.style.backgroundColor.toggle();
-          cartOverlay.style.zIndex.toggle();
-          cartContents.style.zIndex.toggle();
+          cartOverlay.style.zIndex = "100"
+          cartContents.style.zIndex = "1000"
+          flag = true;
+        } else {
+          cartOverlay.style.backgroundColor = "";
+          cartOverlay.style.zIndex = "-1"
+          cartContents.style.zIndex = "0"
+          flag = false;
         }
       }
     </script>

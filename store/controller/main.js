@@ -1,16 +1,22 @@
 getProducts();
+let productList = [];
+let cartList = getCartList();
+renderCart(cartList);
+totals(cartList);
+getCount(cartList);
 
 function getProducts(searchValue) {
   apiGetProducts(searchValue)
     .then((response) => {
-      renderProducts(response.data);
+      productList = response.data;
+      renderProducts(productList);
     })
     .catch((error) => {
       alert("API get products error");
     });
 }
 
-// hàm hiển thị prodcut
+// hàm hiển thị product
 function renderProducts(products) {
   let html = products.reduce((result, product) => {
     return (
@@ -67,46 +73,170 @@ function renderProducts(products) {
 }
 
 function getCarts(productID) {
-  apiGetCarts(productID)
-    .then((response) => {
-      renderCart(response.data);
-    })
-    .catch((error) => {
-      alert("API get products error");
-    });
+  const cartItem = productList.filter((item) => item.id === productID);
+  let item = new Product(
+    cartItem[0].id,
+    cartItem[0].name,
+    cartItem[0].price,
+    cartItem[0].screen,
+    cartItem[0].backCamera,
+    cartItem[0].frontCamera,
+    cartItem[0].img,
+    cartItem[0].desc,
+    cartItem[0].type,
+    1
+  );
+  if (!cartList.some((val) => val.id === productID)) {
+    cartList.push(item);
+  } else {
+    let index = cartList.findIndex((val) => val.id === productID);
+    cartList[index].quantity += 1;
+  }
+  renderCart(cartList);
+  getCount(cartList);
+  totals(cartList);
+  storeCartlist();
 }
+// hàm hiển thị cart
 function renderCart(products) {
   let html = products.reduce((result, product) => {
     return (
       result +
       `
       <div class="product">
-  <div class="product__1">
-    <div class="product__thumbnail">
-      <img src="${product.img}" alt="Italian Trulli">
-    </div>
-    <div class="product__details">
-      <div style="margin-bottom: 8px;"><b>${product.name}</b></div>
-      <div style="font-size: 90%;">Screen: <span class="tertiary">${product.screen}</span></div>
-      <div style="font-size: 90%;">Back Camera: <span class="tertiary">${product.backCamera}</span></div>
-      <div style="font-size: 90%;">Front Camera: <span class="tertiary">${product.frontCamera}</span></div>
-      <div style="margin-top: 8px;"><a href="#!" onclick="btnRemove('1')">Remove</a></div>
-    </div>
-  </div>
-  <div class="product__2">
-    <div class="qty">
-      <span><b>Quantity:</b> </span> &nbsp; &nbsp;
-      <span class="minus bg-dark" onclick="btnMinus('1')">-</span>
-      <span class="quantityResult mx-2">1</span>
-      <span class="plus bg-dark" onclick="btnAdd('1')">+</span>
-    </div>
-    <div class="product__price"><b>${product.price}/b></div>
-  </div>
-</div>
+        <div class="product__1">
+          <div class="product__thumbnail">
+            <img src="${product.img}" alt="Italian Trulli">
+          </div>
+          <div class="product__details">
+            <div style="margin-bottom: 8px;"><b>${product.name}</b></div>
+            <div style="font-size: 90%;">Screen: <span class="tertiary">${
+              product.screen
+            }</span></div>
+            <div style="font-size: 90%;">Back Camera: <span class="tertiary">${
+              product.backCamera
+            }</span></div>
+            <div style="font-size: 90%;">Front Camera: <span class="tertiary">${
+              product.frontCamera
+            }</span></div>
+            <div style="margin-top: 8px;"><a href="#!" onclick="btnRemove('${
+              product.id
+            }')">Remove</a></div>
+          </div>
+        </div>
+        <div class="product__2">
+          <div class="qty">
+            <span><b>Quantity:</b></span> &nbsp; &nbsp;
+            <span class="minus bg-dark" onclick="btnMinus('${
+              product.id
+            }')">-</span>
+            <span class="quantityResult mx-2">${product.quantity}</span>
+            <span class="plus bg-dark" onclick="btnAdd('${
+              product.id
+            }')">+</span>
+          </div>
+          <div class="product__price"><b>$${product.calcCart()}</b></div>
+        </div>
+      </div>
       `
     );
   }, "");
   document.getElementById("cartList").innerHTML = html;
+}
+
+function totals(cartList) {
+  let subTotal = getElement("#subTotal");
+  let shipping = getElement("#shipping");
+  let tax = getElement("#tax");
+  let priceTotal = getElement("#priceTotal");
+
+  let totalPrice = cartList.reduce((total, product) => {
+    return (total + product.quantity) * product.price;
+  }, 0);
+  subTotal.innerHTML = `$${totalPrice}`;
+  shipping.innerHTML = `$${10}`;
+  tax.innerHTML = `$${totalPrice * 0.1}`;
+  priceTotal.innerHTML = `$${totalPrice + 10 + totalPrice * 0.1}`;
+  storeCartlist()
+}
+
+// giảm số lượng
+function btnMinus(productID) {
+  let index = cartList.findIndex((item) => {
+    return item.id === productID;
+  });
+  if (index === -1) return;
+  cartList[index].quantity--;
+  if (cartList[index].quantity < 1) {
+    cartList.splice(index, 1);
+  }
+  renderCart(cartList);
+  getCount(cartList);
+  totals(cartList);
+  storeCartlist();
+}
+
+// tăng số lượng
+function btnAdd(productID) {
+  let index = cartList.findIndex((item) => item.id === productID);
+  if (index === -1) return;
+  cartList[index].quantity += 1;
+  renderCart(cartList);
+  getCount(cartList);
+  totals(cartList);
+  storeCartlist();
+}
+
+// xoa khoi gio hang
+function btnRemove(productID) {
+  cartList = cartList.filter((item) => item.id !== productID);
+  storeCartlist();
+  renderCart(cartList);
+  getCount(cartList);
+  totals(cartList);
+  storeCartlist();
+}
+
+// hàm đếm
+function getCount(cartList) {
+  let count = cartList.reduce((res, product) => {
+    return res + product.quantity;
+  }, 0);
+  document.getElementById("quantityCart").innerHTML = count;
+  storeCartlist();
+}
+
+// lưu cartList xuống localStorage
+function storeCartlist() {
+  const json = JSON.stringify(cartList);
+  localStorage.setItem("cartList", json);
+}
+
+function getCartList() {
+  const json = localStorage.getItem("cartList");
+  if (!json) {
+    return [];
+  }
+
+  const cartList = JSON.parse(json);
+
+  for (let i = 0; i < cartList.length; i++) {
+    const product = cartList[i];
+    cartList[i] = new Product(
+      product.id,
+      product.name,
+      product.price,
+      product.screen,
+      product.backCamera,
+      product.frontCamera,
+      product.img,
+      product.desc,
+      product.type,
+      product.quantity
+    );
+  }
+
+  return cartList;
 }
 
 // ============ Helpers ==============

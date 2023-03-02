@@ -121,7 +121,6 @@ body {
   font-family: "Muli";
 }
 .meh .cart .cart__overlay {
-  z-index: -10000;
   position: fixed;
   top: 0;
   right: 0;
@@ -132,7 +131,6 @@ body {
   transition: all 0.25s;
 }
 .meh .cart .cart__contents {
-  z-index: -1000000;
   position: fixed;
   top: 10%;
   bottom: 0;
@@ -159,6 +157,67 @@ body {
 }
 .meh .cart .cart__products .products {
   margin: 24px 0 0;
+}
+.meh .cart .cart__products .products .product .product__1 {
+  display: flex;
+}
+.meh .cart .cart__products .products .product .product__1 .product__thumbnail {
+  width: 120px;
+  height: 120px;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.meh .cart .cart__products .products .product .product__1 .product__thumbnail img {
+  max-width: 100%;
+  max-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: middle;
+}
+.meh .cart .cart__products .products .product .product__1 .product__details a {
+  color: #e2007a;
+  text-decoration: underline;
+}
+.meh .cart .cart__products .products .product .product__1 .product__details a:hover {
+  color: #0d6efd;
+}
+.meh .cart .cart__products .products .product .product__2 {
+  display: flex;
+  align-items: center;
+  padding-top: 16px;
+}
+.meh .cart .cart__products .products .product .product__2 div {
+  flex: 1 1 auto;
+}
+.meh .cart .cart__products .products .product .product__2 .qty .minus {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  font: 20px/1 Arial, sans-serif;
+  text-align: center;
+  border-radius: 50%;
+  background-clip: padding-box;
+  background-color: #284c5b !important;
+}
+.meh .cart .cart__products .products .product .product__2 .qty .plus {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  font: 20px/1 Arial, sans-serif;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #284c5b !important;
+}
+.meh .cart .cart__products .products .product .product__2 .product__price {
+  text-align: right;
 }
 .meh .cart .cart__totals {
   background-color: #f7f7f7;

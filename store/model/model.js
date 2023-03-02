@@ -8,16 +8,22 @@ class Product {
     frontCamera,
     img,
     desc,
-    type
+    type,
+    quantity
   ) {
     this.id = id;
     this.name = name;
     this.price = price;
-    this.sreen = sreen;
+    this.screen = screen;
     this.backCamera = backCamera;
     this.frontCamera = frontCamera;
     this.img = img;
     this.desc = desc;
     this.type = type;
+    this.quantity = quantity;
   }
+}
+
+Product.prototype.calcCart = function() {
+  return this.price * this.quantity;
 }
