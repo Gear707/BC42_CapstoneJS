@@ -180,13 +180,13 @@ async function updatePhone(phoneID) {
 
 // Hiển thị danh sách phone ra table
 function renderPhones(phones) {
-    let html = phones.reduce((result, phone, index) => {
+    let html = phones.reduce((result, phone) => {
         return (result +
             `
             <tr>
                 <th>${phone.id}</th>
                 <td>${phone.name}</td>
-                <td class="text-center">${phone.price.toLocaleString()}</td>
+                <td class="text-center">${phone.price}</td>
                 <td class="text-center"><img src=${phone.img} with="150px" height="150px" alt="phone image"/></td>
                 <td>${phone.desc}</td>
                 <td class="text-center">
