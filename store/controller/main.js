@@ -151,7 +151,7 @@ function totals(cartList) {
   let priceTotal = getElement("#priceTotal");
 
   let totalPrice = cartList.reduce((total, product) => {
-    return (total + product.quantity) * product.price;
+    return (total + product.quantity) * parseInt(product.price);
   }, 0);
   subTotal.innerHTML = `$${totalPrice}`;
   shipping.innerHTML = `$${10}`;
