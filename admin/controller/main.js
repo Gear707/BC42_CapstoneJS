@@ -55,9 +55,6 @@ getEle("#btnAdd").addEventListener("click", async () => {
     }
 
     try {
-        // thêm thuộc tính tắt form sau khi click nút Add
-        // getEle("#btnAdd").setAttribute("data-dismiss", "modal");
-
         // gửi request tạo data mới cho server
         await generatePhoneAPI(phone);
 
@@ -156,9 +153,6 @@ async function updatePhone(phoneID) {
     }
 
     try {
-        // thêm thuộc tính tắt form sau khi click nút Update
-        // getEle("#btnUpdate").setAttribute("data-dismiss", "modal");
-
         // gửi request cập nhật data cho server
         await updatePhoneAPI(phoneID, phone);
 
