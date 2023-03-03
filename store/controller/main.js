@@ -74,7 +74,7 @@ function renderProducts(products) {
 
 function getCarts(productID) {
   const cartItem = productList.filter((item) => item.id === productID);
-  let item = new Product(
+  let item = new ProductCart(
     cartItem[0].id,
     cartItem[0].name,
     cartItem[0].price,
@@ -84,6 +84,7 @@ function getCarts(productID) {
     cartItem[0].img,
     cartItem[0].desc,
     cartItem[0].type,
+    cartItem[0].quantity,
     1
   );
   if (!cartList.some((val) => val.id === productID)) {
@@ -99,28 +100,28 @@ function getCarts(productID) {
 }
 // hàm hiển thị cart
 function renderCart(products) {
-  let html = products.reduce((result, product) => {
+  let html = products.reduce((result, productCart) => {
     return (
       result +
       `
       <div class="product">
         <div class="product__1">
           <div class="product__thumbnail">
-            <img src="${product.img}" alt="Italian Trulli">
+            <img src="${productCart.img}" alt="Italian Trulli">
           </div>
           <div class="product__details">
-            <div style="margin-bottom: 8px;"><b>${product.name}</b></div>
+            <div style="margin-bottom: 8px;"><b>${productCart.name}</b></div>
             <div style="font-size: 90%;">Screen: <span class="tertiary">${
-              product.screen
+              productCart.screen
             }</span></div>
             <div style="font-size: 90%;">Back Camera: <span class="tertiary">${
-              product.backCamera
+              productCart.backCamera
             }</span></div>
             <div style="font-size: 90%;">Front Camera: <span class="tertiary">${
-              product.frontCamera
+              productCart.frontCamera
             }</span></div>
             <div style="margin-top: 8px;"><a href="#!" onclick="btnRemove('${
-              product.id
+              productCart.id
             }')">Remove</a></div>
           </div>
         </div>
@@ -128,14 +129,14 @@ function renderCart(products) {
           <div class="qty">
             <span><b>Quantity:</b></span> &nbsp; &nbsp;
             <span class="minus bg-dark" onclick="btnMinus('${
-              product.id
+              productCart.id
             }')">-</span>
-            <span class="quantityResult mx-2">${product.quantity}</span>
+            <span class="quantityResult mx-2">${productCart.quantity}</span>
             <span class="plus bg-dark" onclick="btnAdd('${
-              product.id
+              productCart.id
             }')">+</span>
           </div>
-          <div class="product__price"><b>$${product.calcCart()}</b></div>
+          <div class="product__price"><b>$${productCart.calcTotal()}</b></div>
         </div>
       </div>
       `
@@ -144,6 +145,7 @@ function renderCart(products) {
   document.getElementById("cartList").innerHTML = html;
 }
 
+// chốt bill
 function totals(cartList) {
   let subTotal = getElement("#subTotal");
   let shipping = getElement("#shipping");
@@ -151,7 +153,7 @@ function totals(cartList) {
   let priceTotal = getElement("#priceTotal");
 
   let totalPrice = cartList.reduce((total, product) => {
-    return (total + product.quantity) * parseInt(product.price);
+    return total + product.quantity * parseInt(product.price);
   }, 0);
   subTotal.innerHTML = `$${totalPrice}`;
   shipping.innerHTML = `$${10}`;
@@ -199,8 +201,8 @@ function btnRemove(productID) {
 
 // hàm đếm
 function getCount(cartList) {
-  let count = cartList.reduce((res, product) => {
-    return res + product.quantity;
+  let count = cartList.reduce((res, productCart) => {
+    return res + productCart.quantity;
   }, 0);
   document.getElementById("quantityCart").innerHTML = count;
   storeCartlist();
@@ -221,18 +223,18 @@ function getCartList() {
   const cartList = JSON.parse(json);
 
   for (let i = 0; i < cartList.length; i++) {
-    const product = cartList[i];
-    cartList[i] = new Product(
-      product.id,
-      product.name,
-      product.price,
-      product.screen,
-      product.backCamera,
-      product.frontCamera,
-      product.img,
-      product.desc,
-      product.type,
-      product.quantity
+    const productCart = cartList[i];
+    cartList[i] = new ProductCart(
+      productCart.id,
+      productCart.name,
+      productCart.price,
+      productCart.screen,
+      productCart.backCamera,
+      productCart.frontCamera,
+      productCart.img,
+      productCart.desc,
+      productCart.type,
+      productCart.quantity
     );
   }
 
