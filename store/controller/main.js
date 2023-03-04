@@ -240,14 +240,46 @@ function btnEmpty() {
   getCount(cartList);
   totals(cartList);
 }
-
 function btnPay() {
-  if (cartList === []) {
-    alert(`thất bại`);
+  let popUpSuccess = getElement("#popUpSuccess");
+  let popUpFail = getElement("#popUpFail");
+  let popUpCart = getElement("#popUpCart");
+  let cartContents = document.getElementById("cart__contents");
+  if (cartList.length > 0) {
+    setTimeout(() => {
+      popUpCart.classList.add("d-block");
+      popUpSuccess.classList.add("d-block");
+      popUpCart.style.zIndex = "99999999999999999999";
+    }, 100);
+    setTimeout(() => {
+      popUpCart.classList.remove("d-block");
+      popUpSuccess.classList.remove("d-block");
+      popUpCart.style.zIndex = "-10";
+    }, 2000);
   } else {
-    alert(`thành công`);
+    setTimeout(() => {
+      popUpCart.classList.add("d-block");
+      popUpFail.classList.add("d-block");
+      popUpCart.style.zIndex = "99999999999999999999";
+    }, 100);
   }
   btnEmpty();
+}
+function failPay() {
+  let popUpFail = getElement("#popUpFail");
+  let popUpCart = getElement("#popUpCart");
+  popUpFail.classList.remove("d-block");
+  popUpCart.classList.remove("d-block");
+  popUpCart.style.zIndex = "-10";
+}
+
+function searchProudcts() {
+  let brands = getElement("#brands").value;
+
+  let searchBrand = productList.filter(
+    (products) => brands.toLowerCase() === products.type.toLowerCase()
+  );
+  renderProducts(searchBrand);
 }
 
 // lưu cartList xuống localStorage

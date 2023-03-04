@@ -1,0 +1,31 @@
+.popUpCart{
+    position: fixed;
+    top: 200px;
+    left: 670px;
+    background-color: $color-light;
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+    .popUpSuccess{
+        padding-top: 60px;
+        height: 100%;
+        i{
+            font-size: 30px;
+        }
+        p{
+            font-size: 20px;
+        }
+    }
+    .popUpFail{
+        padding-top: 60px;
+        height: 100%;
+        border-radius: 20px;
+        i{
+            font-size: 30px;
+        }
+        p{
+            font-size: 20px;
+        }
+
+    }
+}

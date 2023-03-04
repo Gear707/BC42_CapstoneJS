@@ -337,6 +337,37 @@ body {
   transition: all 0.15s;
 }
 
+.popUpCart {
+  position: fixed;
+  top: 200px;
+  left: 670px;
+  background-color: #fff;
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+}
+.popUpCart .popUpSuccess {
+  padding-top: 60px;
+  height: 100%;
+}
+.popUpCart .popUpSuccess i {
+  font-size: 30px;
+}
+.popUpCart .popUpSuccess p {
+  font-size: 20px;
+}
+.popUpCart .popUpFail {
+  padding-top: 60px;
+  height: 100%;
+  border-radius: 20px;
+}
+.popUpCart .popUpFail i {
+  font-size: 30px;
+}
+.popUpCart .popUpFail p {
+  font-size: 20px;
+}
+
 header {
   position: fixed;
   width: 100%;

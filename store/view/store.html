@@ -159,7 +159,7 @@
       <div class="container">
         <div class="my-5">
           <div class="product__top">
-            <select name="brands" id="brands" class="form-select w-25 mb-5">
+            <select name="brands" id="brands" class="form-select w-25 mb-5" onchange="searchProudcts()">
               <option value="all">All Brands</option>
               <option value="Apple">Apple</option>
               <option value="Samsung">Samsung</option>
@@ -170,6 +170,18 @@
           </div>
         </div>
       </div>
+    </div>
+    <!-- pop up -->
+    <div class="popUpCart d-none" id="popUpCart">
+        <div class="popUpSuccess text-success text-center d-none" id="popUpSuccess">
+          <i class="fa-solid fa-circle-check"></i>
+          <p>thanh toán thành công!</p>
+        </div>
+        <div class="popUpFail bg-danger text-light text-center d-none" id="popUpFail">
+          <i class="fa-solid fa-circle-xmark"></i>
+          <p>thanh toán thất bại!</p>
+          <button type="button" class="btn btn-light" id="btnPayFail" onclick="failPay()">OK</button>
+        </div>
     </div>
     <!-- footer -->
     <footer>
@@ -350,13 +362,13 @@
         cartContents.classList.toggle("d-block");
         if (!flag) {
           cartOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-          cartOverlay.style.zIndex = "100"
-          cartContents.style.zIndex = "1000"
+          cartOverlay.style.zIndex = "100";
+          cartContents.style.zIndex = "1000";
           flag = true;
         } else {
           cartOverlay.style.backgroundColor = "";
-          cartOverlay.style.zIndex = "-1"
-          cartContents.style.zIndex = "0"
+          cartOverlay.style.zIndex = "-1";
+          cartContents.style.zIndex = "0";
           flag = false;
         }
       }
