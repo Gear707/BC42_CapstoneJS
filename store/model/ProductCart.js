@@ -15,6 +15,6 @@ class ProductCart extends Product {
     this.quantity = quantity;
   }
   calcTotal() {
-    return super.price * this.quantity;
+    return this.price * this.quantity;
   }
 }

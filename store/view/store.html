@@ -138,17 +138,17 @@
               </tfoot>
             </table>
             <div class="form__footer">
-              <button class="btn first js-toggle-cart">
+              <button class="btn first js-toggle-cart" onclick="btnContinue()">
                 Continue Shopping
               </button>
               <button
                 class="btn me-5 ms-0 px-4"
-                onclick="emptyCart()"
+                onclick="btnEmpty()"
                 id="emptyCart"
               >
                 <i class="fa-solid fa-trash me-2"></i> Empty Cart
               </button>
-              <button class="btn" onclick="payNow()">Pay Now</button>
+              <button class="btn" onclick="btnPay()">Pay Now</button>
             </div>
           </div>
         </div>

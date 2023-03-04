@@ -84,7 +84,6 @@ function getCarts(productID) {
     cartItem[0].img,
     cartItem[0].desc,
     cartItem[0].type,
-    cartItem[0].quantity,
     1
   );
   if (!cartList.some((val) => val.id === productID)) {
@@ -152,14 +151,20 @@ function totals(cartList) {
   let tax = getElement("#tax");
   let priceTotal = getElement("#priceTotal");
 
-  let totalPrice = cartList.reduce((total, product) => {
-    return total + product.quantity * parseInt(product.price);
+  let totalPrice = cartList.reduce((total, productCart) => {
+    return total + productCart.quantity * parseInt(productCart.price);
   }, 0);
+  let totalShipping = cartList.reduce(
+    (total, item) => {
+      return total;
+    },
+    cartList.length > 0 ? 10 : 0
+  );
   subTotal.innerHTML = `$${totalPrice}`;
-  shipping.innerHTML = `$${10}`;
+  shipping.innerHTML = `$${totalShipping}`;
   tax.innerHTML = `$${totalPrice * 0.1}`;
-  priceTotal.innerHTML = `$${totalPrice + 10 + totalPrice * 0.1}`;
-  storeCartlist()
+  priceTotal.innerHTML = `$${totalPrice + totalShipping + totalPrice * 0.1}`;
+  storeCartlist();
 }
 
 // giảm số lượng
@@ -208,6 +213,43 @@ function getCount(cartList) {
   storeCartlist();
 }
 
+// btn continue
+function btnContinue() {
+  let cartOverlay = document.getElementById("cart__overlay");
+  let cartContents = document.getElementById("cart__contents");
+  cartOverlay.classList.remove("d-block");
+  cartContents.classList.remove("d-block");
+
+  if (!flag) {
+    cartOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    cartOverlay.style.zIndex = "100";
+    cartContents.style.zIndex = "1000";
+    flag = true;
+  } else {
+    cartOverlay.style.backgroundColor = "";
+    cartOverlay.style.zIndex = "-1";
+    cartContents.style.zIndex = "0";
+    flag = false;
+  }
+}
+
+function btnEmpty() {
+  removeCartList();
+  cartList = [];
+  renderCart(cartList);
+  getCount(cartList);
+  totals(cartList);
+}
+
+function btnPay() {
+  if (cartList === []) {
+    alert(`thất bại`);
+  } else {
+    alert(`thành công`);
+  }
+  btnEmpty();
+}
+
 // lưu cartList xuống localStorage
 function storeCartlist() {
   const json = JSON.stringify(cartList);
@@ -239,6 +281,13 @@ function getCartList() {
   }
 
   return cartList;
+}
+
+function removeCartList() {
+  const json = localStorage.removeItem("cartList");
+  if (!json) {
+    return [];
+  }
 }
 
 // ============ Helpers ==============
