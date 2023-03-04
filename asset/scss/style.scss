@@ -13,8 +13,12 @@
 @import "./Components/popUp";
 
 // Layouts
-@import "./Layouts/layout";
+@import "./Layouts/header";
+@import "./Layouts/carousel";
+@import "./Layouts/products";
+@import "./Layouts/footer";
 
 // Pages
 @import "./Pages/home";
 @import "./Pages/admin";
+@import "./Pages/store";

@@ -1,4 +1,4 @@
-/* ADMIN PAGE*/
+/* ADMIN PAGE */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
 #adminBody {
@@ -6,7 +6,7 @@
     background-color: #f7f7f7;
 }
 
-/* HEADER */
+/* ADMIN HEADER */
 .admin__header {
     background-color: rgba(0, 0, 0, 0.8);
 
@@ -28,7 +28,7 @@
     }
 }
 
-/* PHONE */
+/* ADMIN PHONE */
 .phone {
     &__content {
         background-color: white;
@@ -81,7 +81,7 @@
     }
 }
 
-/* FOOTER */
+/* ADMIN FOOTER */
 .admin__footer {
     background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8));
 
