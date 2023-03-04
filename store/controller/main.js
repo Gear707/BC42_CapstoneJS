@@ -279,7 +279,11 @@ function searchProudcts() {
   let searchBrand = productList.filter(
     (products) => brands.toLowerCase() === products.type.toLowerCase()
   );
-  renderProducts(searchBrand);
+  if (searchBrand.length > 0) {
+    renderProducts(searchBrand);
+  } else {
+    renderProducts(productList);
+  }
 }
 
 // lưu cartList xuống localStorage

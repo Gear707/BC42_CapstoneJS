@@ -2,6 +2,7 @@
     .container {
         .product__top {
             padding-left: 13px;
+
             select {
                 display: block;
                 width: 100%;
@@ -19,10 +20,20 @@
                     box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
                 }
 
-                option {}
+                // option {}
             }
         }
 
-        .product__bottom {}
+        // .product__bottom {}
+    }
+}
+
+@include responsive("md") {
+    .product {
+        .container {
+            max-width: 720px;
+
+            .product__top {}
+        }
     }
 }

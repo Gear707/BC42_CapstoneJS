@@ -1,7 +1,7 @@
 .popUpCart{
     position: fixed;
-    top: 200px;
-    left: 670px;
+    top: 250px;
+    left: 650px;
     background-color: $color-light;
     height: 200px;
     width: 200px;
@@ -27,5 +27,17 @@
             font-size: 20px;
         }
 
+    }
+}
+@include responsive("md"){
+    .popUpCart{
+        top: 200px;
+        left: 305px;
+    }
+}
+@include responsive("sm"){
+    .popUpCart{
+        top: 200px;
+        left: 111px;
     }
 }

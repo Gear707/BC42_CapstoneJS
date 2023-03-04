@@ -66,10 +66,12 @@
             font-size: 1em;
         }
     }
-    &:hover .btn{
+
+    &:hover .btn {
         top: 85%;
         opacity: 1;
     }
+
     .card-body {
         button {
             font-size: 15px;
@@ -83,9 +85,42 @@
             background-color: #daa300;
             opacity: 0;
             color: $color-light;
-            &:hover{
+
+            &:hover {
                 color: $color-dark;
             }
+        }
+    }
+}
+
+@include responsive("md") {
+
+    .card {
+        &:hover {}
+
+        &:hover .content-overlay {}
+
+        &:hover .content-details {}
+
+        .content-overlay {
+        height: 100%;
+
+        }
+
+        img {}
+
+        .content-details {
+
+
+            h3 {}
+
+            p {}
+        }
+
+        &:hover .btn {}
+
+        .card-body {
+            button {}
         }
     }
 }

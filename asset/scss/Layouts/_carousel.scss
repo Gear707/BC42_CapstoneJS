@@ -59,7 +59,7 @@
     }
 }
 
-@include responsive("small") {
+@include responsive("md") {
     .carousel {
         padding: 0 1.4rem;
 
@@ -103,7 +103,7 @@
     }
 }
 
-@include responsive("extra-small") {
+@include responsive("sm") {
     .carousel {
         padding: 0;
         .container {

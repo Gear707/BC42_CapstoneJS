@@ -125,6 +125,11 @@
                     .navbar-nav:nth-of-type(2) {
                         .nav-link {
                             padding: 5px 0;
+                            span{
+                                position: relative;
+                                left: 12px;
+                                top: 10px;
+                            }
                         }
                     }
                 }
@@ -140,7 +145,7 @@
         .navbar {
             padding: 0.5rem 12px;
 
-            .container {}
+            // .container {}
         }
     }
 }

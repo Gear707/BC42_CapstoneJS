@@ -230,6 +230,10 @@
                     line-height: 14px;
                     background-color: #294d5c;
                     transition: all 0.15s;
+                    &:hover{
+                        background-color: #5f9db8;
+                        color: $color-dark;
+                    }
                 }
 
                 .btn:nth-of-type(2) {
@@ -246,6 +250,10 @@
                     font-size: 14px;
                     line-height: 14px;
                     transition: all 0.15s;
+                    &:hover{
+                        background-color: #e96443;
+                        color: $color-dark;
+                    }
                 }
 
                 .btn:nth-of-type(3) {
@@ -262,6 +270,32 @@
                     font-size: 14px;
                     line-height: 14px;
                     transition: all 0.15s;
+                    &:hover{
+                        background-color: #f1ca55;
+                        color: $color-dark;
+                    }
+                }
+            }
+        }
+    }
+}
+@include responsive("sm"){
+    .meh{
+        .cart{
+            .cart__contents{
+                width: 400px;
+                .cart__totals{
+                    .form__footer{
+                        .btn:nth-of-type(1){
+                            width: 100px;
+                        }
+                        .btn:nth-of-type(2){
+                            width: 110px;
+                        }
+                        .btn:nth-of-type(3){
+                            width: 75px;
+                        }
+                    }
                 }
             }
         }
