@@ -21,3 +21,19 @@
         transform: translateY(0);
     }
 }
+
+.btn-orange {
+    background-color: $color-orange-btn;
+    border: none;
+    font-size: 17px;
+    color: $color-light;
+    border-radius: 3px;
+    align-items: center;
+    padding: 13px 16px;
+    transition: all 0.15s;
+
+    &:hover {
+        color: $color-dark;
+        background-color: #e96443;
+    }
+}

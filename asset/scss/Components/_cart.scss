@@ -1,0 +1,269 @@
+.meh {
+    position: relative;
+    color: #405461;
+    font-family: 'Muli';
+
+    .cart {
+        .cart__overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            visibility: visible;
+            opacity: 1;
+            transition: all 0.25s;
+
+        }
+
+        .cart__contents {
+            position: fixed;
+            top: 10%;
+            bottom: 0;
+            left: 100%;
+            width: 500px;
+            height: 92%;
+            overflow: auto;
+            background-color: #fff;
+            transition: all 0.25s;
+            transform: translate(-100%, 0);
+        }
+
+        .cart__products {
+            padding: 28px;
+
+            h2 {
+                margin: 0;
+                font-size: 2rem;
+            }
+
+            .microcopy {
+                display: block;
+                color: #9da3af;
+                font-size: 14px;
+                margin-top: 4px;
+            }
+
+            .products {
+                margin: 24px 0 0;
+
+                .product {
+                    .product__1 {
+                        display: flex;
+
+                        .product__thumbnail {
+                            width: 120px;
+                            height: 120px;
+                            border-radius: 3px;
+                            background-color: #fff;
+
+                            img {
+                                max-width: 100%;
+                                max-height: 100%;
+                                object-fit: cover;
+                                vertical-align: middle;
+                            }
+                        }
+
+                        .product__details {
+                            a {
+                                color: #e2007a;
+                                text-decoration: underline;
+
+                                &:hover {
+                                    color: #0d6efd;
+                                }
+                            }
+                        }
+                    }
+
+                    .product__2 {
+                        display: flex;
+                        align-items: center;
+                        padding-top: 16px;
+
+                        div {
+                            flex: 1 1 auto;
+                        }
+
+                        .qty {
+                            .minus {
+                                cursor: pointer;
+                                display: inline-block;
+                                vertical-align: top;
+                                color: white;
+                                width: 20px;
+                                height: 20px;
+                                margin-top: 1px;
+                                font: 20px/1 Arial, sans-serif;
+                                text-align: center;
+                                border-radius: 50%;
+                                background-clip: padding-box;
+                                background-color: #284c5b !important;
+                            }
+                            .plus{
+                                cursor: pointer;
+                                display: inline-block;
+                                vertical-align: top;
+                                color: white;
+                                width: 20px;
+                                height: 20px;
+                                margin-top: 1px;
+                                font: 20px/1 Arial, sans-serif;
+                                text-align: center;
+                                border-radius: 50%;
+                                background-color: #284c5b !important;
+                            }
+                        }
+
+                        .product__price {
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .cart__totals {
+            background-color: #f7f7f7;
+            padding: 28px;
+
+            .totals {
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0;
+
+                tbody {
+                    border-color: inherit;
+                    border-style: solid;
+                    border-width: 0;
+
+                    tr:nth-of-type(1) {
+                        border-color: inherit;
+                        border-style: solid;
+                        border-width: 0;
+
+                        .tertiary {
+                            font-weight: normal;
+                            color: #9da3af;
+                            padding-bottom: 12px;
+                        }
+
+                        td {
+                            padding-bottom: 12px;
+                        }
+                    }
+
+                    tr:nth-of-type(2) {
+                        border-color: inherit;
+                        border-style: solid;
+                        border-width: 0;
+
+                        .tertiary {
+                            font-weight: normal;
+                            color: #9da3af;
+                            padding-bottom: 12px;
+                        }
+
+                        td {
+                            padding-bottom: 12px;
+                        }
+                    }
+
+                    tr:nth-of-type(3) {
+                        border-color: inherit;
+                        border-style: solid;
+                        border-width: 0;
+
+                        .tertiary {
+                            font-weight: normal;
+                            color: #9da3af;
+                            padding-bottom: 12px;
+                        }
+
+                        td {
+                            padding-bottom: 12px;
+                        }
+                    }
+
+                    tr:nth-of-type(4) {
+                        border-color: inherit;
+                        border-style: solid;
+                        border-width: 0;
+
+                        th {
+                            padding-bottom: 12px;
+                        }
+
+                        td {
+                            font-weight: 600;
+                            padding-bottom: 12px;
+                        }
+                    }
+                }
+
+                tfoot {
+                    tr {
+                        .tertiary {
+                            color: #9da3af;
+                            padding-top: 12px;
+                            padding-bottom: 12px;
+                        }
+                    }
+                }
+            }
+
+            .form__footer {
+                margin-top: 24px;
+
+                .btn:nth-of-type(1) {
+                    position: relative;
+                    border: 0;
+                    padding: 16px;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 3px;
+                    color: rgba(255, 255, 255, 0.85);
+                    font-family: 'Muli';
+                    font-size: 14px;
+                    line-height: 14px;
+                    background-color: #294d5c;
+                    transition: all 0.15s;
+                }
+
+                .btn:nth-of-type(2) {
+                    left: 5px;
+                    background-color: #df461f;
+                    position: relative;
+                    border: 0;
+                    padding: 16px;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 3px;
+                    color: rgba(255, 255, 255, 0.85);
+                    font-family: 'Muli';
+                    font-size: 14px;
+                    line-height: 14px;
+                    transition: all 0.15s;
+                }
+
+                .btn:nth-of-type(3) {
+                    left: 70px;
+                    background-color: #f0b80f;
+                    position: relative;
+                    border: 0;
+                    padding: 16px;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 3px;
+                    color: rgba(255, 255, 255, 0.85);
+                    font-family: 'Muli';
+                    font-size: 14px;
+                    line-height: 14px;
+                    transition: all 0.15s;
+                }
+            }
+        }
+    }
+}

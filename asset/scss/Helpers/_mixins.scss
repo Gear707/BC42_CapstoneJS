@@ -31,7 +31,19 @@ $breakpoints: (
             @content;
         }
     }
-
+@mixin responsive($screen) {
+    // map-has-key là hàm dùng để kiểm tra một key có tồn tại trong map hay không
+    @if (map-has-key($map: $breakpoints, $key: $screen)) {
+      // map-get là hàm để lấy giá trị trong map bằng key
+      $width: map-get(
+        $map: $breakpoints,
+        $key: $screen,
+      );
+      @media screen and (max-width: $width) {
+        @content;
+      }
+    }
+  }
     @else {
         @warn "'{$screen}' isn't in breakpoint";
     }

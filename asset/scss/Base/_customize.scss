@@ -32,3 +32,16 @@ input {
 th {
     cursor: pointer;
 }
+
+html,
+body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $color-dark;
+}
+
+.container {
+    max-width: 1320px;
+    padding: 0 12px;
+}
