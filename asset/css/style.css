@@ -1,6 +1,7 @@
 /* GLOBAL */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -43,6 +44,7 @@ th {
 .btn:focus {
   box-shadow: none !important;
 }
+
 .btn:hover {
   animation: btnAnimaton 0.4s ease-in-out infinite alternate;
 }
@@ -51,13 +53,16 @@ th {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(2px);
   }
+
   100% {
     transform: translateY(0);
   }
 }
+
 .container {
   max-width: 1320px;
 }
@@ -71,6 +76,7 @@ th {
 .home {
   margin-top: 200px;
 }
+
 .home__effect {
   display: flex;
   align-items: center;
@@ -92,6 +98,7 @@ th {
   padding-bottom: 0.25rem;
   position: relative;
 }
+
 .heading__effect::before {
   content: "";
   position: absolute;
@@ -106,7 +113,9 @@ th {
 .picture:hover .home__effect {
   box-shadow: 0 5px 35px 0px rgba(0, 0, 0, 0.1);
 }
-.picture:hover .home__effect::before, .picture:hover .home__effect::after {
+
+.picture:hover .home__effect::before,
+.picture:hover .home__effect::after {
   width: 250px;
   height: 250px;
   border-radius: 75px;
@@ -117,13 +126,16 @@ th {
   z-index: -1;
   animation: 1s clockwise infinite;
 }
+
 .picture:hover .home__effect::after {
   background-color: #f3ce5e;
   animation: 2s counterclockwise infinite;
 }
+
 .picture:hover .heading__effect {
   color: #f3ce5e;
 }
+
 .picture:hover .heading__effect::before {
   width: 100%;
 }
@@ -134,77 +146,95 @@ th {
     top: -5px;
     left: 0;
   }
+
   12% {
     top: -2px;
     left: 2px;
   }
+
   25% {
     top: 0;
     left: 5px;
   }
+
   37% {
     top: 2px;
     left: 2px;
   }
+
   50% {
     top: 5px;
     left: 0;
   }
+
   62% {
     top: 2px;
     left: -2px;
   }
+
   75% {
     top: 0;
     left: -5px;
   }
+
   87% {
     top: -2px;
     left: -2px;
   }
+
   100% {
     top: -5px;
     left: 0;
   }
 }
+
 @keyframes counterclockwise {
   0% {
     top: -5px;
     right: 0;
   }
+
   12% {
     top: -2px;
     right: 2px;
   }
+
   25% {
     top: 0;
     right: 5px;
   }
+
   37% {
     top: 2px;
     right: 2px;
   }
+
   50% {
     top: 5px;
     right: 0;
   }
+
   62% {
     top: 2px;
     right: -2px;
   }
+
   75% {
     top: 0;
     right: -5px;
   }
+
   87% {
     top: -2px;
     right: -2px;
   }
+
   100% {
     top: -5px;
     right: 0;
   }
 }
+
 /* ADMIN PAGE*/
 #adminBody {
   padding-top: 70px;
@@ -215,13 +245,16 @@ th {
 .admin__header {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
 .admin__header #adminNav a {
   color: white;
   transition: 0.3s all ease-in-out;
 }
+
 .admin__header #adminNav a:hover {
   transform: scale(1.15);
 }
+
 .admin__header .navbar-toggler {
   font-size: 1.5rem;
   color: rgba(227, 236, 253, 0.8);
@@ -233,6 +266,7 @@ th {
   background-color: white;
   border-radius: 10px 10px 0 0;
 }
+
 .phone__banner {
   background-color: rgba(29, 38, 113, 0.7);
   border-radius: 10px 10px 0 0;
@@ -257,29 +291,34 @@ th {
   padding: 2%;
   background-image: linear-gradient(250deg, #e3ecfd, #fff0e8);
 }
+
 #phoneForm .pForm__item {
   padding: 5px 0;
   margin-bottom: 0;
 }
+
 #phoneForm .pForm__item .pForm_noti {
   color: red;
   margin-left: 40px;
 }
+
 #phoneForm select:focus {
   box-shadow: none;
 }
 
 /* FOOTER */
-footer {
+.admin__footer {
   background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8));
 }
-footer a {
+
+.admin__footer a {
   color: #f8f9fa;
 }
 
 .footer__sns a {
   display: inline-block;
 }
+
 .footer__sns a:hover {
   color: #f8f9fa;
   transform: scale(1.5);
@@ -288,6 +327,7 @@ footer a {
 .footer__info a {
   position: relative;
 }
+
 .footer__info a::before {
   display: block;
   content: "";
@@ -299,9 +339,11 @@ footer a {
   background-color: #f8f9fa;
   transition: all 0.5s;
 }
+
 .footer__info a:hover {
   color: #f8f9fa;
 }
+
 .footer__info a:hover::before {
   width: 100%;
 }
@@ -309,6 +351,7 @@ footer a {
 .footer__copyright {
   background-color: rgba(0, 0, 0, 0.05);
 }
+
 .footer__copyright a:hover {
   color: #17a2b8;
 }
@@ -317,29 +360,38 @@ footer a {
   #phoneModal #modalTitle {
     font-size: 1.9rem;
   }
+
   #phoneModal .modal-content .modal-body {
     padding: 1rem 0;
   }
+
   #phoneModal .modal-content .modal-body #phoneForm {
     width: 370px;
     margin: auto;
   }
+
   #phoneModal .modal-content .modal-body #phoneForm .pForm__item {
     padding: 0;
   }
 }
+
 @media screen and (max-width: 400px) {
   #phoneModal #modalTitle {
     font-size: 1.6rem;
   }
+
   #phoneModal .modal-content .modal-body {
     padding: 1rem 0;
   }
+
   #phoneModal .modal-content .modal-body #phoneForm {
     width: 300px;
     margin: auto;
   }
+
   #phoneModal .modal-content .modal-body #phoneForm .pForm__item {
     padding: 0;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
