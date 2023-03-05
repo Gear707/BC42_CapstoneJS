@@ -58,8 +58,39 @@
         }
     }
 }
+@include responsive('large'){
+    .carousel {
+        padding: 0 1.4rem;
 
-@include responsive("md") {
+        .container {
+            .row {
+                .col-6:nth-of-type(1) {
+                    h5 {
+                        font-size: calc(1.475rem + 2.7vw);
+                        font-weight: 300;
+                        line-height: 1.2;
+                    }
+
+                    p{
+                        width: 100%;
+                    }
+                }
+                .col-6:nth-of-type(2) {
+                    margin-top: 3rem;
+
+                    .carousel__img {
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                
+            }
+        }
+    }
+}
+@include responsive('medium') {
     .carousel {
         padding: 0 1.4rem;
 

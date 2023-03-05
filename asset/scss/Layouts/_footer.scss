@@ -149,7 +149,7 @@
 
 }
 
-@include responsive("md") {
+@include responsive('medium') {
    .store__footer {
         .footer__top {
             .row {
@@ -187,7 +187,7 @@
     }
 }
 
-@include responsive("sm") {
+@include responsive("md") {
     .row{
         margin: 0;
     }
