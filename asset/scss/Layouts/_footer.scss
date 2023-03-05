@@ -187,7 +187,7 @@
     }
 }
 
-@include responsive("md") {
+@include responsive('small') {
     .row{
         margin: 0;
     }

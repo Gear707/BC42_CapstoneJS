@@ -171,7 +171,7 @@ body {
   color: #212529;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767.98px) {
   .card .content-overlay {
     height: 100%;
   }
@@ -410,7 +410,7 @@ body {
   color: #212529;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 575.98px) {
   .meh .cart .cart__contents {
     width: 400px;
   }
@@ -455,19 +455,18 @@ body {
   font-size: 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767.98px) {
   .popUpCart {
     top: 200px;
     left: 305px;
   }
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 575.98px) {
   .popUpCart {
     top: 200px;
     left: 111px;
   }
 }
-/*STORE HEADER*/
 #header {
   position: fixed;
   width: 100%;
@@ -572,7 +571,7 @@ body {
     top: 10px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767.98px) {
   #header {
     padding: 0 1.25rem;
   }
@@ -608,7 +607,7 @@ body {
     top: 10px;
   }
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 500px) {
   #header {
     padding: 0;
   }
@@ -710,7 +709,7 @@ body {
     width: 100%;
   }
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 500px) {
   .carousel {
     padding: 0;
   }
@@ -753,7 +752,7 @@ body {
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767.98px) {
   .product .container {
     max-width: 720px;
   }
@@ -880,7 +879,7 @@ body {
     width: 103%;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767.98px) {
   .row {
     margin: 0;
   }

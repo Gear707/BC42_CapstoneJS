@@ -101,7 +101,8 @@
                                 background-clip: padding-box;
                                 background-color: #284c5b !important;
                             }
-                            .plus{
+
+                            .plus {
                                 cursor: pointer;
                                 display: inline-block;
                                 vertical-align: top;
@@ -230,7 +231,8 @@
                     line-height: 14px;
                     background-color: #294d5c;
                     transition: all 0.15s;
-                    &:hover{
+
+                    &:hover {
                         background-color: #5f9db8;
                         color: $color-dark;
                     }
@@ -250,7 +252,8 @@
                     font-size: 14px;
                     line-height: 14px;
                     transition: all 0.15s;
-                    &:hover{
+
+                    &:hover {
                         background-color: #e96443;
                         color: $color-dark;
                     }
@@ -270,7 +273,8 @@
                     font-size: 14px;
                     line-height: 14px;
                     transition: all 0.15s;
-                    &:hover{
+
+                    &:hover {
                         background-color: #f1ca55;
                         color: $color-dark;
                     }
@@ -279,20 +283,24 @@
         }
     }
 }
-@include responsive("sm"){
-    .meh{
-        .cart{
-            .cart__contents{
+
+@include responsive('extra-small') {
+    .meh {
+        .cart {
+            .cart__contents {
                 width: 400px;
-                .cart__totals{
-                    .form__footer{
-                        .btn:nth-of-type(1){
+
+                .cart__totals {
+                    .form__footer {
+                        .btn:nth-of-type(1) {
                             width: 100px;
                         }
-                        .btn:nth-of-type(2){
+
+                        .btn:nth-of-type(2) {
                             width: 110px;
                         }
-                        .btn:nth-of-type(3){
+
+                        .btn:nth-of-type(3) {
                             width: 75px;
                         }
                     }
