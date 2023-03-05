@@ -59,7 +59,7 @@
     }
 }
 
-@include responsive("md") {
+@include responsive("small") {
     .carousel {
         padding: 0 1.4rem;
 
@@ -103,25 +103,31 @@
     }
 }
 
-@include responsive("sm") {
+@include responsive("extra-small") {
     .carousel {
         padding: 0;
+
         .container {
             padding: 0;
-            .row{
-                .col-6:nth-of-type(1){
+
+            .row {
+                .col-6:nth-of-type(1) {
                     padding: 0 10px;
-                    p{
+
+                    p {
                         width: 100%;
                     }
-                    h3{
+
+                    h3 {
                         font-size: 1.5rem;
                     }
                 }
-                .col-6:nth-of-type(2){
+
+                .col-6:nth-of-type(2) {
                     padding: 0 10px;
-                    .carousel__img{
-                        img{
+
+                    .carousel__img {
+                        img {
                             width: 100%;
                         }
                     }

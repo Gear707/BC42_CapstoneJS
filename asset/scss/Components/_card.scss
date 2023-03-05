@@ -93,7 +93,7 @@
     }
 }
 
-@include responsive("md") {
+@include responsive("small") {
 
     .card {
         &:hover {}
@@ -103,7 +103,7 @@
         &:hover .content-details {}
 
         .content-overlay {
-        height: 100%;
+            height: 100%;
 
         }
 

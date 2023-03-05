@@ -14,8 +14,6 @@
 
 // MIXIN FOR ADMIN
 // Quản lý responsive
-
-
 @mixin responsive($screen) {
 
   // map-has-key là hàm dùng để kiểm tra một key có tồn tại trong map hay không

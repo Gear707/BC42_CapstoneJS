@@ -149,8 +149,8 @@
 
 }
 
-@include responsive("md") {
-   .store__footer {
+@include responsive("small") {
+    .store__footer {
         .footer__top {
             .row {
                 p {
@@ -187,10 +187,11 @@
     }
 }
 
-@include responsive("sm") {
-    .row{
+@include responsive("extra-small") {
+    .row {
         margin: 0;
     }
+
     .store__footer {
         .container {
             .footer__middle {

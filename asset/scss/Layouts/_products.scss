@@ -28,7 +28,7 @@
     }
 }
 
-@include responsive("md") {
+@include responsive("small") {
     .product {
         .container {
             max-width: 720px;

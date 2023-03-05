@@ -90,7 +90,7 @@
     }
 }
 
-@include responsive("md") {
+@include responsive("small") {
     #header {
         padding: 0 1.25rem;
 
@@ -125,7 +125,8 @@
                     .navbar-nav:nth-of-type(2) {
                         .nav-link {
                             padding: 5px 0;
-                            span{
+
+                            span {
                                 position: relative;
                                 left: 12px;
                                 top: 10px;
@@ -138,7 +139,7 @@
     }
 }
 
-@include responsive("sm") {
+@include responsive("extra-small") {
     #header {
         padding: 0;
 

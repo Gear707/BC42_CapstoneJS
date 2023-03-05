@@ -1,4 +1,4 @@
-.popUpCart{
+.popUpCart {
     position: fixed;
     top: 250px;
     left: 650px;
@@ -6,37 +6,45 @@
     height: 200px;
     width: 200px;
     border-radius: 20px;
-    .popUpSuccess{
+
+    .popUpSuccess {
         padding-top: 60px;
         height: 100%;
-        i{
+
+        i {
             font-size: 30px;
         }
-        p{
+
+        p {
             font-size: 20px;
         }
     }
-    .popUpFail{
+
+    .popUpFail {
         padding-top: 60px;
         height: 100%;
         border-radius: 20px;
-        i{
+
+        i {
             font-size: 30px;
         }
-        p{
+
+        p {
             font-size: 20px;
         }
 
     }
 }
-@include responsive("md"){
-    .popUpCart{
+
+@include responsive("small") {
+    .popUpCart {
         top: 200px;
         left: 305px;
     }
 }
-@include responsive("sm"){
-    .popUpCart{
+
+@include responsive("extra-small") {
+    .popUpCart {
         top: 200px;
         left: 111px;
     }
